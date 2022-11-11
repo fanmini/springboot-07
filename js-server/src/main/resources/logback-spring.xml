@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_FILE" value="${LOG_FILE:-${LOG_PATH:-${LOG_TEMP:-${java.io.tmpdir:-/tmp}}}/spring.log}"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!-- 日志文件存放路径（日志目录） -->
+    <property name="PATH" value="log"/>
+    <!-- 日志文件的相关配置   -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- 正在记录的日志文件的路径及文件名 -->
+        <file>${PATH}/spring.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${PATH}/spring.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize><!-- 单个文件最大100MB -->
+            <maxHistory>30</maxHistory><!-- 最多保存30天的纪录-->
+            <totalSizeCap>3GB</totalSizeCap><!-- 日志最大总量3GB-->
+        </rollingPolicy>
+        <encoder>
+            <!--格式化输出：%d表示日期，%-5level：级别从左显示5个字符宽度,%msg：日志消息，%n是换行符-->
+            <pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%-5level] [%logger:%line] --%mdc{client} %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--    控制台输出的样式-->
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>[%date{yyyy-MM-dd HH:mm:ss}] [%-5level] [%logger:%line] --%mdc{client} %msg%n</pattern>
+        </encoder>
+    </appender>
+    <!--这个表示指定某个包下的日志级别，需要改成自己的包 -->
+    <logger name="com.fql" level="INFO"/>
+    <!-- 默认 -->
+    <root>
+        <level value="INFO" />
+        <appender-ref ref="FILE"/>
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
