@@ -1,0 +1,296 @@
+/*===================top===============*/
+.top{
+    width: 1100px;
+    background-image: url("../img/jghy.jpg");
+    background-size: 100% 100%;
+    height: calc(1100*1287px/1920);
+    margin-bottom: 20px;
+}
+.nav{
+    background-color: rgb(51,51,51);
+}
+/*loge*/
+.loge{
+    width: 200px;
+    height: 84px;
+    color: white;
+    margin-left: -140px;
+}
+.loge > div:nth-child(1) > img{
+    height: calc(100*59px/95);
+    margin: 10px 5px 10px 15px ;
+}
+.loge > div:nth-child(2){
+    margin: 18px 0 10px 0 ;
+}
+.loge > div:nth-child(2)> div:nth-child(2){
+    padding-top: 10px;
+    font-size: 12px;
+}
+/*菜单*/
+.menu {
+    width: 700px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.menu > div {
+    width: 100px;
+    padding: 30px  18px;
+    color: rgb(163,163,163);
+}
+.menu > div >div:nth-child(1){
+    background-color: red;
+}
+.menu  > div:hover{
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+/*===============================main========================*/
+.main > .about-us{
+    background-image: url("../img/m1z5.jpg");
+    background-size: 100% 100%;
+    height: calc(1100*487px/1920);
+    margin-bottom: 80px;
+}
+
+/*关于我们*/
+/*左边*/
+.infos{
+    margin-left: 50px;
+    width: 400px;
+    height: 245px;
+}
+.infos > div:nth-child(1){
+    padding: 20px 0 ;
+}
+.infos > div:nth-child(2){
+    width: 400px;
+    height: 200px;
+}
+.infos > div:nth-child(2)>div{
+    margin: 7px 0 ;
+}
+
+/*右边loge 底部内容*/
+.content{
+    margin-left: 50px;
+    width: 850px;
+    height: 120px;
+}
+
+.content > div:nth-child(1){
+    padding-top: 50px;
+    width: 700px;
+}
+
+/*私人|*/
+.our-team{
+    background-image: url("../img/cjg0.jpg");
+    background-size: 100% 100%;
+    /*
+    width: calc(1100*717px/1920);//// 错误未理解
+    */
+}
+.thread{
+    width: 80px;
+    height: 0;
+    border: rgb(102,102,102) 1px solid;
+}
+.our-team > div:nth-child(1)>div:nth-child(2){
+    text-align: center;
+}
+.our-team > div:nth-child(1){
+    padding-top: 20px;
+}
+
+.thread {
+    margin:25px 15px;
+}
+
+/*图片部分*/
+.our-team > div:nth-child(2){
+    width: 1100px;
+}
+
+.coach {
+    margin:40px 60px 30px 60px;
+    width: calc(280*291px/317);
+    text-align: center;
+    color: white;
+}
+.coach > div:nth-child(1)>img{
+    width: 100%;
+    height: 100%;
+}
+.more{
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    border: white solid 1px;
+    padding:5px 15px ;
+    margin: 40px 0 25px 0;
+}
+.more:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+/*底部*/
+.our-team-foot{
+    background-color: rgb(215,41,42);
+    width: 1100px;
+    height: 80px;
+}
+
+.our-team-foot > div:nth-child(1){
+    margin: 20px 50px;
+
+}
+
+.our-team-foot > div:nth-child(1)>div{
+    color: white;
+    font-size: 10px;
+    padding:5px 0;
+}
+
+.more2 {
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    border: white solid 1px;
+    padding:5px 15px ;
+    margin: 25px 50px  0 0 ;
+}
+
+.more2:hover{
+    color: black;
+    background-color: white;
+    cursor: pointer;
+}
+
+/*-------新闻资讯*/
+.news{
+    text-align: center;
+}
+.news > div:nth-child(1){
+    margin: 40px 0 0 0;
+}
+/*图片*/
+.news-content > div{
+    text-align: left;
+    width: 250px;
+    margin:40px 60px 10px 60px;
+    /*
+    height: calc(285*317px/291); // 设置高度会出错
+    */
+    color: white;
+}
+.news-img{
+    overflow: hidden;
+}
+.news-img>div>img{
+    width: 100% ;
+}
+/*文字*/
+.news-text > div:nth-child(1){
+
+    margin: 10px 0;
+    font-size: 15px;
+    color: rgb(90,90,90);
+}
+.news-text > div:nth-child(2){
+    margin: 10px 0;
+    font-size: 13px;
+    color: rgb(146,146,146);
+}
+.news-text > div:nth-child(3){
+    overflow: hidden;
+    height: 50px ;
+    font-size: 10px;
+    color: rgb(141,141,141);
+}
+
+.news> div:nth-child(3)>div{
+    background-color: rgb(215,41,42);
+}
+.more3 {
+    font-size: 15px;
+    color: white;
+    text-align: center;
+    border: white solid 1px;
+    padding:5px 15px ;
+    margin: 35px 0;
+}
+.more3:hover{
+    cursor: pointer;
+}
+
+
+
+/*===============================foot===================*/
+.foot{
+}
+.foot-bg{
+    height: calc(1300*652px/1920);
+    background-image: url("../img/klan.jpg");
+    background-size: 100% 100%;
+}
+.foot-bg > div:nth-child(1){
+    height: calc(300*455px/562);
+    padding: 197px 40px 0 0;
+}
+.foot-bg > div:nth-child(1) > img{
+    height: 100%;
+    width: 100% ;
+}
+/*表单*/
+.foot-bg > div:nth-child(2){
+    margin: 20px 40px 0 0;
+    background-color: white;
+    width: 520px;
+    height: 400px;
+}
+.info>div{
+    color: rgb(90,90,90);
+    font-size: 14px;
+    margin: 10px 25px;
+}
+.info>div:nth-child(1){
+    color: rgb(215,41,42);
+    font-size: 18px;
+    margin: 25px 0 5px 25px;
+}
+.form{
+    display: flex;
+}
+.form > div{
+    margin-right: 20px;
+}
+.form > div > div{
+    margin:10px 0px;
+}
+.inp{
+    width: 200px;
+    height: 30px;
+}
+
+#button{
+    color: white;
+    width: 80px;
+    height: 30px    ;
+    background-color: rgb(237,60,70);
+    border: none;
+}
+#button:hover {
+    cursor: pointer;
+
+}
+
+.info > div:nth-child(6){
+    margin-top: 20px;
+    font-size: 25px;
+}

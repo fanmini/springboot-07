@@ -1,0 +1,11 @@
+.page > div {
+    border: 1px solid grey;
+    margin: 5px;
+    padding: 5px;
+}
+.page > div:hover{
+    cursor: pointer;
+    background-color: red;
+    color: black;
+
+}

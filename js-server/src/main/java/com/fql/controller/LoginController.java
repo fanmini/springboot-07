@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 /**
  * @author Qian
  */
@@ -20,15 +21,20 @@ public class LoginController {
      * @return
      */
     @Autowired
-    LoginServiceImpl loginUser;
-    @PostMapping("/back/login")
+    private LoginServiceImpl loginUser;
+    @PostMapping("/login")
     public ResultModel login(@RequestBody UserModel user){
         return loginUser.login(user);
     }
-    @GetMapping(value = "/back/loginOut")
+    @GetMapping(value = "/loginOut")
     public ResultModel loginOut(){
         return loginUser.loginOut();
     }
 
+
+    @GetMapping("/code")
+    public ResultModel getCode(HttpServletResponse res){
+        return loginUser.getCode(res);
+    }
 
 }

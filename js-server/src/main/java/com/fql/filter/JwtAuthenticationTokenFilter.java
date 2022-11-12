@@ -1,8 +1,9 @@
 package com.fql.filter;
 
-import com.fql.common.JwtUtil;
-import com.fql.common.RedisUtil;
-import com.fql.entity.LoginUser;
+import com.fql.common.ErrorMsgCodeEnum;
+import com.fql.util.JwtUtil;
+import com.fql.util.RedisUtil;
+import com.fql.entity.UserDetailsEntity;
 import io.jsonwebtoken.Claims;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -35,7 +36,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
     private void logCheck(HttpServletRequest req, HttpServletResponse resp, FilterChain filterChain) throws IOException, ServletException {
         // 获取token
         String token = req.getHeader("token");
-        // 不为空判断
+        // 空判断
         if(!StringUtils.hasText(token)){
             filterChain.doFilter(req, resp);
             return;
@@ -47,13 +48,14 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             userId = claims.getSubject();
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException("非法token");
+            logger.error("非法的token尝试登录后台管理系统");
+            throw new RuntimeException(ErrorMsgCodeEnum.ERROR_LOGIN_NO.toString());
         }
-        // 从redis中同userid获取用户信
+        // 从redis中同userid获取用户信息ASDFG
         String redisKey = "login:"+userId;
-        LoginUser userLogin = red.getCacheObject(redisKey);
+        UserDetailsEntity userLogin = red.getCacheObject(redisKey);
         if(Objects.isNull(userLogin)){
-            throw new RuntimeException("用户未登录");
+            throw new RuntimeException(ErrorMsgCodeEnum.ERROR_LOGIN_NO.toString());
         }
         // 存入SecurityContextHolder
         //  获取权限信息封装到Authentication中

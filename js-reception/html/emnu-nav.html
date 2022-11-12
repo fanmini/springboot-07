@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/emnu-nav.css">
+</head>
+<body>
+    <div class="menu-nav ">
+        <div class="starts">
+                <div><img src="../img/p7up.png" alt=""></div>
+                <div>网站首页</div>
+                <div>&gt;&gt;</div>
+                <div id="thisNav"></div>
+        </div>
+    </div>
+<script type="text/javascript">
+    $('#thisNav').html(sessionStorage.getItem('nav'));
+</script>
+</body>
+</html>

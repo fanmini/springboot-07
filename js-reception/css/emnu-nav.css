@@ -1,0 +1,17 @@
+/*菜单2*/
+/* .menu-nav > div > div{
+     display: flex;
+     align-items: center;
+     width: 900px;
+ }*/
+.menu-nav > div {
+    width: 1000px;
+    margin: 20px 50px;
+    border-bottom: solid 1px red;
+    font-size: 20px;
+    font-family: 黑体;
+}
+
+.menu-nav > div > div {
+    margin: 10px 5px;
+}

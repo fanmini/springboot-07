@@ -2,6 +2,7 @@ package com.fql.common;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fql.entity.ResultModel;
+import com.fql.util.WebUtils;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +18,8 @@ import java.io.IOException;
 public class AuthenticationException implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest res, HttpServletResponse resp, org.springframework.security.core.AuthenticationException e) throws IOException, ServletException {
-        ResultModel resultModel = ResultModel.getResultModel(ErrorMsgCodeEnum.ERROR_AUTHENTICATION);
+        ResultModel resultModel = ResultModel.getResultModel(e.getMessage(),null);
+
         ObjectMapper mapper = new ObjectMapper();
         String s = mapper.writeValueAsString(resultModel);
         WebUtils.renderString(resp,s);

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="/X-admin/css/font.css">
+        <link rel="stylesheet" href="/X-admin/css/login.css">
+        <link rel="stylesheet" href="/X-admin/css/xadmin.css">
+        <script type="text/javascript" src="/js/jquery-3.5.1.js"></script>
+        <script src="/X-admin/lib/layui/layui.js" charset="utf-8"></script>
+        <script src="/js/xadmin.js"></script>
+        <script src="/js/myAjax.js"></script>
+        <script src="/js/customer-add.js"></script>
+    </head>
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row">
+                <form class="layui-form">
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class="x-red"></span>姓名</label>
+                        <div class="layui-input-inline">
+                            <input class="layui-input" autocomplete="off" placeholder="姓名" name="name" id="name">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="L_phone" class="layui-form-label">
+                            <span class="x-red"></span>电话</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="L_phone" name="phone" required="" lay-verify="phone" autocomplete="off" class="layui-input"></div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="L_email" class="layui-form-label">
+                            <span class="x-red"></span>邮箱</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="L_email" name="email" required="" lay-verify="email" autocomplete="off" class="layui-input"></div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label for="L_content" class="layui-form-label">
+                            <span class="x-red"></span>内容</label>
+                        <div class="layui-input-inline">
+                            <input type="text" id="L_content" name="content" required="" lay-verify="content" autocomplete="off" class="layui-input"></div>
+                    </div>
+
+
+                    <div class="layui-form-item">
+                        <label  class="layui-form-label"></label>
+                        <button class="layui-btn" lay-filter="add" lay-submit="" id="add">增加</button></div>
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>

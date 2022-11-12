@@ -1,5 +1,6 @@
 package com.fql.service;
 
+import com.fql.entity.ResultModel;
 import com.fql.entity.UserModel;
 
 /**
@@ -23,4 +24,7 @@ public interface UserService {
      * @return
      */
     UserModel findByName(String userName);
+
+
+
 }

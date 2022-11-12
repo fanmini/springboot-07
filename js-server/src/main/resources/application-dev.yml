@@ -1,6 +1,10 @@
 server:
   port: 8080
+
 spring:
+  #===========bean冲突======#
+  main:
+    allow-bean-definition-overriding: true
   #============数据库===========#
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,6 +19,7 @@ spring:
     database: mysql
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL57Dialect # 指定数据库引擎
+
 
 
 

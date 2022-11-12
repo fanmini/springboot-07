@@ -1,6 +1,7 @@
 package com.fql.service.imp;
 
-import com.fql.common.RedisUtil;
+import com.fql.common.ErrorMsgCodeEnum;
+import com.fql.util.RedisUtil;
 import com.fql.entity.ResultModel;
 import com.fql.service.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,7 @@ public class BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Base
     @Override
     public <S extends T> ResultModel save(S entity) {
         S data = repository.save(entity);
-        ResultModel resultModel = ResultModel.getResultModel(data);
-        return resultModel ;
+        return ResultModel.getResultModel(data);
     }
 
     /**
@@ -54,7 +54,7 @@ public class BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Base
             repository.deleteById(id);
             return ResultModel.getResultModel("删除成功",null);
         }
-        return ResultModel.getResultModel("删除失败",null);
+        return ResultModel.getResultModel(ErrorMsgCodeEnum.ERROR_DEL.toString(),null);
     }
 
     @Override

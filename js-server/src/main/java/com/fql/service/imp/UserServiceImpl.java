@@ -50,7 +50,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepos
     @Override
     public <S extends UserModel> ResultModel save(S entity) {
         ResultModel save = super.save(entity);
-        redisUtil.setCacheObject(key,save.getData());
+        redisUtil.setCacheObject(key,(UserModel)save.getData());
         return save;
     }
 }

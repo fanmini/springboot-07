@@ -1,0 +1,46 @@
+/*地图*/
+
+.main{
+    width: 1000px;
+    margin: 50px 50px 100px;
+}
+
+.main>div>div:nth-child(1){
+    width: 500px;
+}
+
+.main>div>div:nth-child(1)>img{
+    width: 100%;
+    height: 100%;
+}
+
+/*联系方式*/
+
+.company-info{
+    border: grey 1px solid;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 415px;
+
+}
+.company-info > img{
+    width: 100%;
+    height: 100%;
+}
+.company-info>div:nth-child(odd){
+    width: 225px;
+    height: 118px;
+    padding-top: 20px ;
+    border-right: 1px solid black;
+    border-bottom: 1px solid black;
+}
+.company-info>div:nth-child(even){
+    width: 270px;
+    height: 118px;
+    border-bottom: 1px solid black;
+    padding-top: 20px ;
+}
+
+

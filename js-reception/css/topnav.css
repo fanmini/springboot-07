@@ -1,0 +1,73 @@
+ .topnav {
+    margin-bottom: 20px;
+}
+.tops {
+    background-image: url("../img/scott-webb-22437.jpg");
+    background-size: 100% 100%;
+    height: 300px;
+}
+
+.nav {
+    background-color: rgb(51, 51, 51);
+}
+
+/*loge*/
+.loge {
+    width: 200px;
+    height: 84px;
+    color: white;
+    margin-left: -140px;
+}
+
+.loge > div:nth-child(1) > img {
+    height: calc(100 * 59px / 95);
+    margin: 10px 5px 10px 15px;
+}
+
+.loge > div:nth-child(2) {
+    margin: 18px 0 10px 0;
+}
+
+.loge > div:nth-child(2) > div:nth-child(2) {
+    padding-top: 10px;
+    font-size: 12px;
+}
+
+/*菜单*/
+.menu {
+    width: 700px;
+    display: flex;
+    align-items: center;
+    margin-left:30px ;
+    padding-left: 10px;
+}
+
+.menu > div {
+    width: 100px;
+    padding: 30px 18px;
+    color: rgb(163, 163, 163);
+}
+
+.menu > div:hover {
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+/*菜单2*/
+/* .menu-nav > div > div{
+     display: flex;
+     align-items: center;
+     width: 900px;
+ }*/
+.menu-nav > div {
+    width: 1100px;
+    margin-top: 20px;
+    border-bottom: solid 1px red;
+    font-size: 20px;
+    font-family: 黑体;
+}
+
+.menu-nav > div > div {
+    margin: 10px 5px;
+}

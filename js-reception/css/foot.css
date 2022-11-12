@@ -1,0 +1,62 @@
+.foot{
+}
+.foot-bg{
+    height: calc(1300*652px/1920);
+    background-image: url("../img/klan.jpg");
+    background-size: 100% 100%;
+}
+.foot-bg > div:nth-child(1){
+    height: calc(300*455px/562);
+    padding: 197px 40px 0 0;
+}
+.foot-bg > div:nth-child(1) > img{
+    height: 100%;
+    width: 100% ;
+}
+/*表单*/
+.foot-bg > div:nth-child(2){
+    margin: 20px 40px 0 0;
+    background-color: white;
+    width: 520px;
+    height: 400px;
+}
+.info>div{
+    color: rgb(90,90,90);
+    font-size: 14px;
+    margin: 10px 25px;
+}
+.info>div:nth-child(1){
+    color: rgb(215,41,42);
+    font-size: 18px;
+    margin: 25px 0 5px 25px;
+}
+.form{
+    display: flex;
+}
+.form > div{
+    margin-right: 20px;
+}
+.form > div > div{
+    margin:10px 0px;
+}
+.inp{
+    width: 200px;
+    height: 30px;
+}
+
+#button{
+    color: white;
+    width: 80px;
+    height: 30px    ;
+    background-color: rgb(237,60,70);
+    border: none;
+}
+#button:hover {
+    cursor: pointer;
+
+}
+
+.info > div:nth-child(6){
+    margin-top: 20px;
+    font-size: 25px;
+}
