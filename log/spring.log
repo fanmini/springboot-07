@@ -2482,3 +2482,224 @@ io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a ke
 [2022-11-12 17:18:10] [INFO ] [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:601] -- Closing JPA EntityManagerFactory for persistence unit 'default'
 [2022-11-12 17:18:10] [INFO ] [com.alibaba.druid.pool.DruidDataSource:2063] -- {dataSource-1} closing ...
 [2022-11-12 17:18:10] [INFO ] [com.alibaba.druid.pool.DruidDataSource:2136] -- {dataSource-1} closed
+[2022-11-12 17:18:17] [INFO ] [com.fql.JsServerApplication:55] -- Starting JsServerApplication on XiaoXin13Pro with PID 47904 (E:\code\WanXi\springboot-07\js-server\target\classes started by Qian in E:\code\WanXi\springboot-07)
+[2022-11-12 17:18:17] [INFO ] [com.fql.JsServerApplication:655] -- The following profiles are active: dev
+[2022-11-12 17:18:17] [WARN ] [org.springframework.http.converter.json.Jackson2ObjectMapperBuilder:127] -- For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:249] -- Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:127] -- Bootstrapping Spring Data Elasticsearch repositories in DEFAULT mode.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.CompanyContactRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.CompanyProfileRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.CustomerRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.NavRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.NewsRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.OurTeamRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.ProductRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.StudentRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.UserRepository. If you want this repository to be a Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ElasticsearchRepository, org.springframework.data.elasticsearch.repository.ElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:187] -- Finished Spring Data repository scanning in 85ms. Found 1 Elasticsearch repository interfaces.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:249] -- Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:127] -- Bootstrapping Spring Data Reactive Elasticsearch repositories in DEFAULT mode.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.CompanyContactRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.CompanyProfileRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.CustomerRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.NavRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.NewsRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.OurTeamRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.ProductRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.StudentRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Reactive Elasticsearch - Could not safely identify store assignment for repository candidate interface com.fql.repository.UserRepository. If you want this repository to be a Reactive Elasticsearch repository, consider annotating your entities with one of these annotations: org.springframework.data.elasticsearch.annotations.Document (preferred), or consider extending one of the following types with your repository: org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:187] -- Finished Spring Data repository scanning in 9ms. Found 0 Reactive Elasticsearch repository interfaces.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:249] -- Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:127] -- Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data JPA - Could not safely identify store assignment for repository candidate interface com.fql.repository.BankEsRepository. If you want this repository to be a JPA repository, consider annotating your entities with one of these annotations: javax.persistence.Entity, javax.persistence.MappedSuperclass (preferred), or consider extending one of the following types with your repository: org.springframework.data.jpa.repository.JpaRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:187] -- Finished Spring Data repository scanning in 30ms. Found 9 JPA repository interfaces.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:249] -- Multiple Spring Data modules found, entering strict repository configuration mode!
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:127] -- Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.BankEsRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.CompanyContactRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.CompanyProfileRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.CustomerRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.NavRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.NewsRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.OurTeamRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.ProductRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.StudentRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationExtensionSupport:348] -- Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.fql.repository.UserRepository. If you want this repository to be a Redis repository, consider annotating your entities with one of these annotations: org.springframework.data.redis.core.RedisHash (preferred), or consider extending one of the following types with your repository: org.springframework.data.keyvalue.repository.KeyValueRepository.
+[2022-11-12 17:18:18] [INFO ] [org.springframework.data.repository.config.RepositoryConfigurationDelegate:187] -- Finished Spring Data repository scanning in 7ms. Found 0 Redis repository interfaces.
+[2022-11-12 17:18:19] [INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335] -- Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@5b2b8d86' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-11-12 17:18:19] [INFO ] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker:335] -- Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2022-11-12 17:18:19] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer:108] -- Tomcat initialized with port(s): 8080 (http)
+[2022-11-12 17:18:19] [INFO ] [org.apache.catalina.core.StandardService:173] -- Starting service [Tomcat]
+[2022-11-12 17:18:19] [INFO ] [org.apache.catalina.core.StandardEngine:173] -- Starting Servlet engine: [Apache Tomcat/9.0.41]
+[2022-11-12 17:18:19] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] -- Initializing Spring embedded WebApplicationContext
+[2022-11-12 17:18:19] [INFO ] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext:285] -- Root WebApplicationContext: initialization completed in 1950 ms
+[2022-11-12 17:18:20] [INFO ] [org.hibernate.jpa.internal.util.LogHelper:31] -- HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-12 17:18:20] [INFO ] [org.hibernate.Version:44] -- HHH000412: Hibernate ORM core version 5.4.25.Final
+[2022-11-12 17:18:20] [INFO ] [org.hibernate.annotations.common.Version:56] -- HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-12 17:18:20] [INFO ] [com.alibaba.druid.pool.DruidDataSource:975] -- {dataSource-1} inited
+[2022-11-12 17:18:20] [INFO ] [org.hibernate.dialect.Dialect:175] -- HHH000400: Using dialect: org.hibernate.dialect.MySQL57Dialect
+[2022-11-12 17:18:21] [INFO ] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator:52] -- HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-12 17:18:21] [INFO ] [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:419] -- Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-12 17:18:21] [WARN ] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration:220] -- spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-12 17:18:22] [WARN ] [org.springframework.data.convert.CustomConversions:273] -- Registering converter from class org.springframework.data.geo.Point to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[2022-11-12 17:18:22] [WARN ] [org.springframework.data.convert.CustomConversions:263] -- Registering converter from interface java.util.Map to class org.springframework.data.geo.Point as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[2022-11-12 17:18:22] [WARN ] [org.springframework.data.convert.CustomConversions:273] -- Registering converter from class org.springframework.data.elasticsearch.core.geo.GeoPoint to interface java.util.Map as writing converter although it doesn't convert to a store-supported type! You might want to check your annotation setup at the converter implementation.
+[2022-11-12 17:18:22] [WARN ] [org.springframework.data.convert.CustomConversions:263] -- Registering converter from interface java.util.Map to class org.springframework.data.elasticsearch.core.geo.GeoPoint as reading converter although it doesn't convert from a store-supported type! You might want to check your annotation setup at the converter implementation.
+[2022-11-12 17:18:23] [INFO ] [org.springframework.data.elasticsearch.support.VersionInfo:59] -- Version Spring Data Elasticsearch: 4.0.6.RELEASE
+[2022-11-12 17:18:23] [INFO ] [org.springframework.data.elasticsearch.support.VersionInfo:60] -- Version Elasticsearch Client in build: 7.6.2
+[2022-11-12 17:18:23] [INFO ] [org.springframework.data.elasticsearch.support.VersionInfo:61] -- Version Elasticsearch Client used: 7.6.2
+[2022-11-12 17:18:24] [WARN ] [org.springframework.data.elasticsearch.repository.support.AbstractElasticsearchRepository:97] -- Cannot create index: Timeout connecting to [localhost/127.0.0.1:9200]; nested exception is java.lang.RuntimeException: Timeout connecting to [localhost/127.0.0.1:9200]
+[2022-11-12 17:18:25] [INFO ] [com.fql.config.RabbitConfig:25] -- 创建队列queueTestAll...
+[2022-11-12 17:18:25] [INFO ] [com.fql.config.RabbitConfig:31] -- 创建队列queueTest1...
+[2022-11-12 17:18:25] [INFO ] [com.fql.config.RabbitConfig:37] -- 创建队列queueTest2...
+[2022-11-12 17:18:25] [INFO ] [com.fql.config.RabbitConfig:47] -- topic 实例化主题交换机,name:fql.in_home.topic
+[2022-11-12 17:18:25] [INFO ] [com.fql.config.RabbitConfig:56] -- 队列all绑定交换机,name:fql.in_home.topic
+[2022-11-12 17:18:25] [INFO ] [com.fql.config.RabbitConfig:62] -- 队列test1绑定交换机,name:fql.in_home.topic
+[2022-11-12 17:18:25] [INFO ] [com.fql.config.RabbitConfig:68] -- 队列test2绑定交换机,name:fql.in_home.topic
+[2022-11-12 17:18:25] [INFO ] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:181] -- Initializing ExecutorService 'applicationTaskExecutor'
+[2022-11-12 17:18:26] [INFO ] [org.springframework.security.web.DefaultSecurityFilterChain:43] -- Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@50ccd6a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4eda5325, org.springframework.security.web.header.HeaderWriterFilter@7f0b32c0, org.springframework.web.filter.CorsFilter@6bb2dae6, org.springframework.security.web.authentication.logout.LogoutFilter@e1f88b6, com.fql.filter.JwtAuthenticationTokenFilter@c318864, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b158e16, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7ae3591b, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@26c7940a, org.springframework.security.web.session.SessionManagementFilter@71de943f, org.springframework.security.web.access.ExceptionTranslationFilter@7c5eb88c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2ab91b65]
+[2022-11-12 17:18:26] [INFO ] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer:220] -- Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-12 17:18:26] [INFO ] [org.springframework.amqp.rabbit.connection.CachingConnectionFactory:558] -- Attempting to connect to: [localhost:5672]
+[2022-11-12 17:18:26] [INFO ] [org.springframework.amqp.rabbit.connection.CachingConnectionFactory:511] -- Created new connection: rabbitConnectionFactory#156d7556:0/SimpleConnection@7ad0d002 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 60219]
+[2022-11-12 17:18:26] [INFO ] [com.fql.JsServerApplication:61] -- Started JsServerApplication in 9.675 seconds (JVM running for 10.595)
+[2022-11-12 17:20:40] [INFO ] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]:173] -- Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-12 17:20:40] [INFO ] [org.springframework.web.servlet.DispatcherServlet:525] -- Initializing Servlet 'dispatcherServlet'
+[2022-11-12 17:20:40] [INFO ] [org.springframework.web.servlet.DispatcherServlet:547] -- Completed initialization in 11 ms
+[2022-11-12 17:20:41] [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:175] -- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value] with root cause
+io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:118)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:109)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:680)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:640)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:591)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+[2022-11-12 17:20:50] [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:175] -- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value] with root cause
+io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:118)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:109)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:680)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:640)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:591)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+[2022-11-12 17:25:13] [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:175] -- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value] with root cause
+io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:118)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:109)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:680)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:640)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:591)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+[2022-11-12 17:25:15] [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:175] -- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value] with root cause
+io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:118)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:109)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:680)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:640)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:591)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+[2022-11-12 17:25:15] [ERROR] [org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet]:175] -- Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisSystemException: Error in execution; nested exception is io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value] with root cause
+io.lettuce.core.RedisCommandExecutionException: WRONGTYPE Operation against a key holding the wrong kind of value
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:135)
+	at io.lettuce.core.ExceptionFactory.createExecutionException(ExceptionFactory.java:108)
+	at io.lettuce.core.protocol.AsyncCommand.completeResult(AsyncCommand.java:118)
+	at io.lettuce.core.protocol.AsyncCommand.complete(AsyncCommand.java:109)
+	at io.lettuce.core.protocol.CommandHandler.complete(CommandHandler.java:680)
+	at io.lettuce.core.protocol.CommandHandler.decode(CommandHandler.java:640)
+	at io.lettuce.core.protocol.CommandHandler.channelRead(CommandHandler.java:591)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:357)
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1410)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:379)
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:365)
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:919)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:166)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:719)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:655)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:581)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:493)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)
+	at io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.lang.Thread.run(Thread.java:748)
+[2022-11-12 17:30:23] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:646] -- Waiting for workers to finish.
+[2022-11-12 17:30:23] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:649] -- Successfully waited for workers to finish.
+[2022-11-12 17:30:23] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:646] -- Waiting for workers to finish.
+[2022-11-12 17:30:24] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:649] -- Successfully waited for workers to finish.
+[2022-11-12 17:30:24] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:646] -- Waiting for workers to finish.
+[2022-11-12 17:30:24] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:649] -- Successfully waited for workers to finish.
+[2022-11-12 17:30:25] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:1260] -- Shutdown ignored - container is not active already
+[2022-11-12 17:30:25] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:1260] -- Shutdown ignored - container is not active already
+[2022-11-12 17:30:25] [INFO ] [org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer:1260] -- Shutdown ignored - container is not active already
+[2022-11-12 17:30:25] [INFO ] [org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor:218] -- Shutting down ExecutorService 'applicationTaskExecutor'
+[2022-11-12 17:30:25] [INFO ] [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:601] -- Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-12 17:30:25] [INFO ] [com.alibaba.druid.pool.DruidDataSource:2063] -- {dataSource-1} closing ...
+[2022-11-12 17:30:25] [INFO ] [com.alibaba.druid.pool.DruidDataSource:2136] -- {dataSource-1} closed

@@ -1,5 +1,6 @@
 package com.fql.service.imp;
 
+import com.fql.common.RedisKeyPrefixEnum;
 import com.fql.entity.NavModel;
 import com.fql.repository.NavRepository;
 import org.springframework.stereotype.Service;
@@ -9,4 +10,11 @@ public class NavServiceImpl extends BaseServiceImpl<NavModel,Integer, NavReposit
     public NavServiceImpl(NavRepository repository) {
         super(repository);
     }
+    @Override
+    void setPrefixKey() {
+        super.prefixKey= RedisKeyPrefixEnum.NAV_KEY.getKey();
+    }
 }
+
+
+

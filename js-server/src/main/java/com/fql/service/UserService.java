@@ -15,6 +15,7 @@ public interface UserService {
      * @param userName
      * @param password
      * @return
+     * 检查登录
      */
     UserModel checkLogin(String userName,String password);
 
@@ -22,6 +23,7 @@ public interface UserService {
      *
      * @param userName
      * @return
+     * 用于查询指定名称的用户信息
      */
     UserModel findByName(String userName);
 

@@ -1,5 +1,6 @@
 package com.fql.service.imp;
 
+import com.fql.common.RedisKeyPrefixEnum;
 import com.fql.entity.CompanyProfileModel;
 import com.fql.repository.CompanyProfileRepository;
 import org.springframework.stereotype.Service;
@@ -12,4 +13,10 @@ public class CompanyProfileServiceImpl extends BaseServiceImpl<CompanyProfileMod
     public CompanyProfileServiceImpl(CompanyProfileRepository repository) {
         super(repository);
     }
+
+    @Override
+    void setPrefixKey() {
+        super.prefixKey= RedisKeyPrefixEnum.COMPANY_PROFILE_KEY.getKey();
+    }
+
 }

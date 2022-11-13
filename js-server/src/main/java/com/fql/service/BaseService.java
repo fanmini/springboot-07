@@ -14,12 +14,6 @@ public interface BaseService<T, ID> {
     <S extends T> ResultModel save(S entity);
 
     /**
-     * delete  entity
-     * 删除方法
-     */
-    ResultModel delete(T entity);
-
-    /**
      * 通过id删除
      *
      * @param id
@@ -33,9 +27,9 @@ public interface BaseService<T, ID> {
 
     /**
      * 通过id查询
-     *
      * @param id
      * @return
      */
     ResultModel findById(ID id);
+
 }

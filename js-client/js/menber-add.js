@@ -22,7 +22,7 @@ layui.use(['form', 'layedit', 'laydate'], function () {
         // 在把数组转换为字符串，
         data.hobby = arr.toLocaleString();
         let res = myAjax("/back/user/add",data,'post');
-        if(res.count>0){
+        if(res.code===0){
             layer.alert(
                 '添加成功',
                 {icon:6},
@@ -35,11 +35,5 @@ layui.use(['form', 'layedit', 'laydate'], function () {
         }
         return false;
     });
-
-
-
-
-
-
 });
       

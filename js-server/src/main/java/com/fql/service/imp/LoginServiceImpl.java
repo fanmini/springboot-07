@@ -70,7 +70,7 @@ public class LoginServiceImpl implements LoginService {
         String id = userDetailsEntity.getUserModel().getId().toString();
         String jwt = JwtUtil.createJWT(id);
         // authenticate 存储
-        redisUtil.setCacheObject("login:"+id, userDetailsEntity);
+        redisUtil.setCacheObject("login:"+id, userDetailsEntity,30,TimeUnit.MINUTES);
         // 返回token
         HashMap<String, String> map = new HashMap<>();
         map.put("userName",user.getUserName());

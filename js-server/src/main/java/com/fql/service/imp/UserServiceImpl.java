@@ -16,41 +16,28 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepository> implements UserService {
+
     public UserServiceImpl(UserRepository repository) {
         super(repository);
     }
-    // 设置 user key 用于redis 缓存取值
-    private String key = RedisKeyPrefixEnum.USER_KEY.getKey();
+
+    // 实现了父类对redis的前缀的赋值 用于去对redis中应组的数据的操作
+    @Override
+    void setPrefixKey() {
+        super.prefixKey = RedisKeyPrefixEnum.USER_KEY.getKey();
+    }
+
+    // 检查用户以及密码是否正确
     @Override
     public UserModel checkLogin(String userName, String password) {
         return repository.findByUserNameAndPassword(userName, password);
     }
 
+
+    // 根据姓名查询用户是否存在
     @Override
     public UserModel findByName(String userName) {
         return repository.findByUserName(userName);
     }
 
-    @Override
-    public ResultModel findAll() {
-        // 通过工具类方法获取redis数据
-        List<Object> userModels = redisUtil.getCacheList(key);
-        // 判断是否存在缓存
-        if(userModels.size()> 0){
-            return ResultModel.getResultModel(userModels);
-        }else {
-            // 不存在调用父类 并且存储
-            ResultModel all = super.findAll();
-            List<UserModel> data = (List<UserModel>) all.getData();
-            redisUtil.setCacheList(key,data);
-            return all;
-        }
-    }
-
-    @Override
-    public <S extends UserModel> ResultModel save(S entity) {
-        ResultModel save = super.save(entity);
-        redisUtil.setCacheObject(key,(UserModel)save.getData());
-        return save;
-    }
 }

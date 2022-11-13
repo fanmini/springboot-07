@@ -1,5 +1,6 @@
 package com.fql.service.imp;
 
+import com.fql.common.RedisKeyPrefixEnum;
 import com.fql.entity.StudentModel;
 import com.fql.repository.StudentRepository;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,10 @@ public class StudentServiceImpl extends BaseServiceImpl<StudentModel,Integer, St
     public StudentServiceImpl(StudentRepository studentRepository) {
         super(studentRepository);
     }
-
+    @Override
+    void setPrefixKey() {
+        super.prefixKey= RedisKeyPrefixEnum.STUDENT_KEY.getKey();
+    }
 
 
 }
