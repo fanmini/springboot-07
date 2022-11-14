@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class NewsServiceImpl extends BaseServiceImpl<NewsModel,Integer, NewsRepository> {
     public NewsServiceImpl(NewsRepository repository) {
-        super(repository);
+        super(repository, RedisKeyPrefixEnum.NEWS_KEY.getKey());
     }
-    @Override
-    void setPrefixKey() {
-        super.prefixKey= RedisKeyPrefixEnum.NEWS_KEY.getKey();
-    }
+
 }

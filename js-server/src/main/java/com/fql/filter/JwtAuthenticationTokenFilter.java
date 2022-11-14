@@ -59,8 +59,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             throw new RuntimeException(ErrorMsgCodeEnum.ERROR_LOGIN_NO.toString());
         }
         // 刷新token有效期 30 分钟
-        red.expire(redisKey,30L);
-
+        red.expire(redisKey,30L,TimeUnit.MINUTES);
         // 存入SecurityContextHolder
         //  获取权限信息封装到Authentication中
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(userLogin, null, userLogin.getAuthorities());

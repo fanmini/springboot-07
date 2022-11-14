@@ -11,12 +11,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompanyProfileServiceImpl extends BaseServiceImpl<CompanyProfileModel,Integer, CompanyProfileRepository> {
     public CompanyProfileServiceImpl(CompanyProfileRepository repository) {
-        super(repository);
-    }
-
-    @Override
-    void setPrefixKey() {
-        super.prefixKey= RedisKeyPrefixEnum.COMPANY_PROFILE_KEY.getKey();
+        super(repository,RedisKeyPrefixEnum.COMPANY_PROFILE_KEY.getKey());
     }
 
 }

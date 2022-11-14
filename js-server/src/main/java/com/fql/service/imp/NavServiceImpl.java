@@ -8,11 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class NavServiceImpl extends BaseServiceImpl<NavModel,Integer, NavRepository>  {
     public NavServiceImpl(NavRepository repository) {
-        super(repository);
-    }
-    @Override
-    void setPrefixKey() {
-        super.prefixKey= RedisKeyPrefixEnum.NAV_KEY.getKey();
+        super(repository,RedisKeyPrefixEnum.NAV_KEY.getKey());
     }
 }
 

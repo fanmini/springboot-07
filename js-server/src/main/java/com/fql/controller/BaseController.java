@@ -23,12 +23,7 @@ public class BaseController<Entity,ID> {
         return service.save(entity);
     }
 
-    @ApiOperation(value = "传入一个当前模型对象，根据传入的参数进行参数匹配删除",httpMethod = "DELETE")
-    @DeleteMapping("/del")
-    @PreAuthorize("hasAuthority('system:admin:all')")
-    public ResultModel delete(@RequestBody Entity entity) {
-        return service.delete(entity);
-    }
+
 
     @ApiOperation(value = "通过传入一个当前对象的id，根据传入的id进行参数匹配删除",httpMethod = "DELETE")
     @DeleteMapping("/del/{id}")

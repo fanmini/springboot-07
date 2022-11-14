@@ -12,13 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CompanyContactServiceImpl extends BaseServiceImpl<CompanyContactModel,Integer,CompanyContactRepository> {
     public CompanyContactServiceImpl(CompanyContactRepository repository) {
-        super(repository);
+        super(repository,RedisKeyPrefixEnum.COMPANY_CONTACT_KEY.getKey());
     }
-
-    @Override
-    void setPrefixKey() {
-        super.prefixKey= RedisKeyPrefixEnum.COMPANY_CONTACT_KEY.getKey();
-    }
-
 
 }

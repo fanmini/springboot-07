@@ -8,11 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductServiceImpl extends BaseServiceImpl<ProductModel,Integer, ProductRepository>  {
     public ProductServiceImpl(ProductRepository repository) {
-        super(repository);
+        super(repository,RedisKeyPrefixEnum.PRODUCT_KEY.getKey());
     }
 
-    @Override
-    void setPrefixKey() {
-        super.prefixKey= RedisKeyPrefixEnum.PRODUCT_KEY.getKey();
-    }
 }

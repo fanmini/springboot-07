@@ -8,10 +8,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class OurTeamServiceImpl extends BaseServiceImpl<OurTeamModel,Integer, OurTeamRepository>  {
     public OurTeamServiceImpl(OurTeamRepository repository) {
-        super(repository);
-    }
-    @Override
-    void setPrefixKey() {
-        super.prefixKey= RedisKeyPrefixEnum.OUR_TEAM_KEY.getKey();
+        super(repository,RedisKeyPrefixEnum.OUR_TEAM_KEY.getKey());
     }
 }

@@ -17,14 +17,9 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepository> implements UserService {
 
-    public UserServiceImpl(UserRepository repository) {
-        super(repository);
-    }
 
-    // 实现了父类对redis的前缀的赋值 用于去对redis中应组的数据的操作
-    @Override
-    void setPrefixKey() {
-        super.prefixKey = RedisKeyPrefixEnum.USER_KEY.getKey();
+    public UserServiceImpl(UserRepository repository) {
+        super(repository,RedisKeyPrefixEnum.USER_KEY.getKey());
     }
 
     // 检查用户以及密码是否正确

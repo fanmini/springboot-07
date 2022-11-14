@@ -8,11 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class StudentServiceImpl extends BaseServiceImpl<StudentModel,Integer, StudentRepository>  {
     public StudentServiceImpl(StudentRepository studentRepository) {
-        super(studentRepository);
-    }
-    @Override
-    void setPrefixKey() {
-        super.prefixKey= RedisKeyPrefixEnum.STUDENT_KEY.getKey();
+        super(studentRepository,RedisKeyPrefixEnum.STUDENT_KEY.getKey());
     }
 
 

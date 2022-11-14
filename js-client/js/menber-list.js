@@ -37,7 +37,7 @@ layui.use(['table','form','laydate'], function(){
         })
         data.hobby=arr.toLocaleString();
         console.log(data)
-        tableData("/back/user/query",data,null);
+        tableData("/back/user/query",JSON.stringify(data),cols);
         return false;
     })
     // 模糊查询数据格式验证

@@ -10,7 +10,7 @@ function myAjax(url,data,type){
     let result = null;
     $.ajax({
         url: "http://localhost:8080"+url,
-        data:JSON.stringify(data),
+        data:data,
         contentType:'application/json;charset=UTF-8',
         type:type,
         dataType:'json',
@@ -29,7 +29,7 @@ var tableData = function (url,data,cols){
         elem: '#test'
         ,url: "http://localhost:8080"+url
         ,headers: {'token': sessionStorage.getItem('token')}
-        ,where: JSON.stringify(data)
+        ,where: data
         ,page: true
         ,list: 10
         ,cols: cols
