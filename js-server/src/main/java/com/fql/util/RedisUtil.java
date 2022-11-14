@@ -1,9 +1,7 @@
 package com.fql.util;
 
-import org.springframework.data.redis.core.BoundSetOperations;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.ValueOperations;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.data.redis.core.*;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
@@ -16,7 +14,13 @@ import java.util.concurrent.TimeUnit;
 @Component
 public class  RedisUtil{
     public RedisTemplate redisTemplate;
+    StringRedisTemplate s  = new StringRedisTemplate();
     RedisUtil(RedisTemplate redisTemplate){this.redisTemplate=redisTemplate;}
+
+    /**
+     * 手动序列化节省内存
+     */
+    private ObjectMapper mapper = new ObjectMapper();
 
     /**
      * 缓存基本的对象，Integer、String、实体类等

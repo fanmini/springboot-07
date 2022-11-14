@@ -1,10 +1,3 @@
-let table ;
-layui.use(['table'], function() {
-    table = layui.table;
-
-
-})
-
 // 自定义ajax
 function myAjax(url,data,type){
     let result = null;
@@ -25,6 +18,7 @@ function myAjax(url,data,type){
 
 // 渲染表单方法
 var tableData = function (url,data,cols){
+    var table = layui.table ;
     table.render({
         elem: '#test'
         ,url: "http://localhost:8080"+url
@@ -46,4 +40,34 @@ var tableData = function (url,data,cols){
             window.open("/login/login.html","_top");
         }
     });
+}
+
+// 文件上传
+let uploadFile = function(){
+    var upload = layui.upload ;
+    upload.render({
+    elem: '#test1'
+    ,url: '/back/file/upload'
+    ,headers: {'token': sessionStorage.getItem("token")}
+    ,method: 'POST'
+    ,before: function(obj){
+        //预读本地文件示例，不支持ie8
+        obj.preview(function(index, file, result){
+            $('#demo1').attr('src', result); //图片链接（base64）
+        });
+        layer.msg("上传中.....",{   // 图片上传等待
+            icon: 16,
+            shade:0.01,
+            time: 0
+        })
+    }
+    ,done: function(res){
+        layer.close(layer.msg());  // 关闭上传等待框
+        imgHref=res.data.src ;
+        //如果上传失败
+        if(res.code > 0){
+            return layer.msg('上传失败');
+        }
+    }
+})
 }

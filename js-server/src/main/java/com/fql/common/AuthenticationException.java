@@ -3,6 +3,7 @@ package com.fql.common;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fql.entity.ResultModel;
 import com.fql.util.WebUtils;
+import org.aspectj.weaver.ast.Var;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
 

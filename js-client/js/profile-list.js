@@ -3,9 +3,22 @@ layui.use(['table','form','laydate'], function(){
     let form = layui.form;
     let laydate = layui.laydate;
 
-
+     var cols =  [[
+        {field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
+        ,{field:'images', title:'图片', width:80, edit:'text',  templet:function (res){
+                return "<img src='"+res.imgHref+"' width='50'/>"
+            }}
+        ,{field:'date', title:'历史时间', width:80, edit:'text'}
+        ,{field:'content', title:'内容简介', width:200, edit:'text'}
+        ,{field:'enable', title:'状态', width:150, edit: 'text', templet: function(res){
+                return res.enable==0?
+                    '<em style="color: green">'+'启用'+'</em>':
+                    '<em style="color: red">'+ '停用' +'</em>'
+            }}
+        ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150 }
+    ]]
     // 渲染表单
-    findAll();
+    tableData('/back/companyProfile/query',null,cols);
 
     // 渲染时间日期
     laydate.render({
@@ -15,45 +28,9 @@ layui.use(['table','form','laydate'], function(){
     form.on('submit(sreach)', function(data){
         data = data.field;
         console.log(data)
-        findAll(data);
+        tableData('/back/companyProfile/query',JSON.stringify(data),cols);
         return false;
     })
-    // 渲染表单方法
-    function findAll(data){
-        table.render({
-            elem: '#test'
-            ,url:'http://localhost:8080/back/companyProfile/query'
-            ,headers: {'token': localStorage.getItem('codeKey')}
-            ,where: data
-            ,page: true
-            ,cols: [[
-                ,{field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
-                ,{field:'images', title:'图片', width:80, edit:'text',  templet:function (res){
-                    return "<img src='"+res.imgHref+"' width='50'/>"
-                    }}
-                ,{field:'date', title:'历史时间', width:80, edit:'text'}
-                ,{field:'content', title:'内容简介', width:200, edit:'text'}
-                ,{field:'enable', title:'状态', width:150, edit: 'text', templet: function(res){
-                        return res.enable==0?
-                            '<em style="color: green">'+'启用'+'</em>':
-                            '<em style="color: red">'+ '停用' +'</em>'
-                    }}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150 }
-            ]]
-           ,parseData: function (res){
-                if(res.code==1003){
-                    window.alert(res.msg);
-                    window.open("/login/login.html");
-                }
-            }
-            ,error:function(res){
-                window.alert(res.msg);
-                window.alert("错误代码"+res.code);
-                window.open("/login/login.html");
-            }
-        });
-    }
-
 
     //触发单元格工具事件
     table.on('tool(test)', function (obj) { // 双击 toolDouble
@@ -61,7 +38,7 @@ layui.use(['table','form','laydate'], function(){
         if (obj.event === 'del') {
             layer.confirm('真的删除行么', function (index) {
                 // 删除数据库数据
-                let myAjax1 = myAjax('http://localhost:8080/back/companyProfile/del', {id:data.id},'post');
+                let myAjax1 = myAjax('/back/companyProfile/del/'+data.id, 'post');
 
                 if(myAjax1.count>0){ // 判断是否删除成功
                     layer.msg('删除成功',function (){

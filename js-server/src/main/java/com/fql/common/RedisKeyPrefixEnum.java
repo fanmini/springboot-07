@@ -38,7 +38,7 @@ public enum RedisKeyPrefixEnum {
     /**
      *
      */
-    COMPANY_PROFILE_KEY("t_company_contact"),
+    COMPANY_PROFILE_KEY("t_company_profile"),
     /**
      *
      */

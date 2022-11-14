@@ -13,7 +13,7 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
     // 查询
     function findById(){
         let id = sessionStorage.getItem("profileId");
-         let res = myAjax("http://localhost:8080/back/companyProfile/query",{id:id},"get");
+         let res = myAjax("/back/companyProfile/query/"+id,"get");
          if(res!=null) {
              setUserData(res.data);
          }
@@ -25,11 +25,6 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
                 ,"content": data.content // "name": "value"
                 ,"enable": data.enable==0?'0':'1' // 状态 启用禁用
             });
-            // 数据状态赋值 2
-            //     $('input[type=radio][name=enable][value='+data.enable+']').attr('checked','checked');
-            // 数据赋值 3
-                // $("#username").val(data.username)
-            // 图片回显
             $('#demo1').attr("src",data.imgHref);
             imgHref = data.imgHref ;
     }
@@ -41,7 +36,7 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
         data.id=sessionStorage.getItem('profileId');
         data.imgHref=imgHref ;
         console.log(data);
-        let res = myAjax("http://localhost:8080/back/companyProfile/set",data,'post');
+        let res = myAjax("/back/companyProfile/set",data,'post');
         if(res.count>0){
             layer.alert(
                 '修改成功',
@@ -58,10 +53,11 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
 
 
     // 文件上传
-    upload.render({
+    uploadFile();
+   /* upload.render({
         elem: '#test1'
-        ,url: 'http://localhost:8080/back/file/upload'
-        ,headers: {'token': localStorage.getItem("codeKey")}
+        ,url: '/back/file/upload'
+        ,headers: {'token': sessionStorage.getItem("token")}
         ,method: 'POST'
         ,before: function(obj){
             //预读本地文件示例，不支持ie8
@@ -82,7 +78,7 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
                 return layer.msg('上传失败');
             }
         }
-    });
+    });*/
 
 
 });

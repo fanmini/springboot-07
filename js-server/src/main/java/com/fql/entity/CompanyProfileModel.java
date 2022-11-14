@@ -5,7 +5,9 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 
-/*
+/**
+ * @author Qian
+ */ /*
 * 公司基本信息
 * 1 简介
 * 2 历史：时间 简介

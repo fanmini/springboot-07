@@ -1,7 +1,7 @@
 layui.use(['table','form','laydate'], function(){
-    var table = layui.table;
     let form = layui.form;
     let laydate = layui.laydate;
+    let table = layui.table;
     // 定义表格字段
     var cols = [[
         {field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}

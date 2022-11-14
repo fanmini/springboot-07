@@ -85,7 +85,6 @@ public class LoginServiceImpl implements LoginService {
         String key = "login:"+userModel.getId();
         String msg = redisUtil.deleteObject(key)?"退出成功":"退出失败";
 
-
         return ResultModel.getResultModel(msg,userModel.getUserName());
     }
 }

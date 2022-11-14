@@ -11,7 +11,7 @@ public enum ErrorMsgCodeEnum {
     ERROR_LOGIN_NO(new ErrorMsgCode(1002,"请先登录")),
     ERROR_LOGIN_AUTHORITY(new ErrorMsgCode(1003,"权限不足")),
 
-    ERROR_ADD(new ErrorMsgCode(2000,"添加失败,请检查添加内容是否合法")),
+    ERROR_ADD(new ErrorMsgCode(2000,"添加失败")),
     ERROR_DEL(new ErrorMsgCode(2001,"删除失败")),
     ERROR_SET(new ErrorMsgCode(2002,"修改失败")),
     ERROR_FIND(new ErrorMsgCode(2003,"查询失败"));

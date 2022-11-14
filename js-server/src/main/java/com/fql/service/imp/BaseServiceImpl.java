@@ -49,7 +49,6 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
      */
     protected String prefixKey ;
 
-
     /**
      * 通过构造器注入当前操作数据库的的对象类
      * @param repository
@@ -73,7 +72,7 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
         // 更新数据库
         S data = repository.save(entity);
         // 删除缓存
-        redisUtil.deleteObject(prefixKey);
+        redisUtil.deleteObject(prefixKey+":*");
 
         return ResultModel.getResultModel("添加成功",null);
     }
@@ -99,15 +98,16 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
 
     @Override
     public ResultModel findAll() {
+        String key = prefixKey+":all";
         // 缓存查询
-        List<T> data = redisUtil.getCacheObject(prefixKey);
+        List<T> data = redisUtil.getCacheList(key);
         ResultModel result = ResultModel.getResultModel("查询成功", data);
-        if(Objects.isNull(data)){
+        if(data.size()==0){
             // 数据库查询
             data = repository.findAll();
+            redisUtil.setCacheList(key,data);
+            redisUtil.expire(key,1L,TimeUnit.HOURS);
         }
-        // 存入缓存
-        redisUtil.setCacheObject(prefixKey,data,1, TimeUnit.HOURS);
         // 返回数据
         result.setData(data);
         return result;
@@ -119,15 +119,18 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
             log.warn("user id is error");
             return ResultModel.getResultModel("没有找到对应用户",null);
         }
-        String key = prefixKey+id;
+        String key = prefixKey+":"+id;
         // 缓存查询用户信息
         T data = redisUtil.getCacheObject(key);
         if(Objects.isNull(data)){
             // 数据库查询
-            data = (T) repository.findById(id);
-            // 存入redis
-            redisUtil.setCacheObject(key,data,1,TimeUnit.HOURS);
+            data = (T) repository.findById(id).orElse(null);
         }
+        if(Objects.isNull(data)){
+            return ResultModel.getResultModel("未找到该信息",data);
+        }
+        // 存入redis
+        redisUtil.setCacheObject(key,data,1,TimeUnit.HOURS);
         // 返回结果
         return ResultModel.getResultModel("查询成功",data);
     }

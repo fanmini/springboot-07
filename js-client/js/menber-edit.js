@@ -15,7 +15,7 @@ layui.use(['form', 'layedit', 'laydate'], function () {
     // 查询
     function findById(){
         let id = sessionStorage.getItem("userId");
-         let res = myAjax("http://localhost:8080/back/user/query",{id:id},"get");
+         let res = myAjax("/back/user/query/"+id,null,"get");
          if(res!=null) {
              setUserData(res.data);
          }
@@ -23,17 +23,11 @@ layui.use(['form', 'layedit', 'laydate'], function () {
     // 赋值
     function setUserData(data){
             form.val('user-edit', {
-                "username": data.username // "name": "value"
+                "userName": data.userName // "name": "value"
                 ,"phone": data.phone // "name": "value"
                 ,"enable": data.enable==0?'0':'1' // 状态 启用禁用
                 ,"email": data.email //开关状态
             });
-            // 数据状态赋值 2
-            //     $('input[type=radio][name=enable][value='+data.enable+']').attr('checked','checked');
-            // 数据赋值 3
-                // $("#username").val(data.username)
-
-            // 爱好回显赋值
             let arr = data.hobby.split(",");
             $('input[name=hobby][type=checkbox]').each(function(){
                 for (let i = 0; i < arr.length; i++) {
@@ -50,17 +44,13 @@ layui.use(['form', 'layedit', 'laydate'], function () {
         data = data.field;
         let arr = [] ;
         $('input[type=checkbox][name=hobby]:checked').each(function (){
-            // 数组，添加，
-            //$(this).attr('title')：拿到当前被选中的checkbox的值
-            // $(this).val()拿的是标签里面的值
-            // attr拿
             arr.push($(this).attr('title'));
         });
         // 在把数组转换为字符串，
         data.hobby = arr.toLocaleString();
         data.id=sessionStorage.getItem('userId');
         console.log(data);
-        let res = myAjax("http://localhost:8080/back/user/set",data,'post');
+        let res = myAjax("/back/user/set",JSON.stringify(data),'PUT');
         if(res.count>0){
             layer.alert(
                 '修改成功',

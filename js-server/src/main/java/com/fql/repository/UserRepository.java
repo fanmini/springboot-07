@@ -3,6 +3,8 @@ package com.fql.repository;
 import com.fql.entity.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
+
 /**
  * @author Qian
  * 用户持久化
@@ -20,6 +22,5 @@ public interface UserRepository extends JpaRepository<UserModel,Integer> {
      * @return
      */
     UserModel findByUserName(String userName);
-
 
 }

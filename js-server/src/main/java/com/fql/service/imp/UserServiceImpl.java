@@ -35,4 +35,6 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepos
         return repository.findByUserName(userName);
     }
 
+
+
 }
