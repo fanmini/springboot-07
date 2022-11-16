@@ -14,7 +14,7 @@ public class ProductModel extends BaseModel {
     private String imgHref;
     private String name;
     private BigDecimal price ;
-//    private NavModel navModel ;
+    private Integer navId;
 
 
 }

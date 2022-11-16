@@ -4,6 +4,9 @@ import io.swagger.annotations.ApiModel;
 
 import javax.persistence.Entity;
 
+/**
+ * @author Qian
+ */
 @Entity(name = "t_our_team")
 @ApiModel(value = "教练",description = "教练模型")
 
@@ -11,12 +14,6 @@ public class OurTeamModel extends BaseModel {
     private String imgHref ;
     private String name  ;
     private String  position ;
-
-    public OurTeamModel(String imgHref, String name, String position) {
-        this.imgHref = imgHref;
-        this.name = name;
-        this.position = position;
-    }
 
     public OurTeamModel() {
     }

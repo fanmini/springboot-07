@@ -17,4 +17,9 @@ public class CompanyProfileController extends BaseController<CompanyProfileModel
     public CompanyProfileController(CompanyProfileServiceImpl service) {
         super(service);
     }
+
+
+
+
+
 }

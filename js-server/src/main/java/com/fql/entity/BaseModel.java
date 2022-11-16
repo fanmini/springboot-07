@@ -11,6 +11,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Date;
 
 @ToString
 @AllArgsConstructor
@@ -41,10 +42,6 @@ public class BaseModel implements Serializable {
     @Column(insertable = false ,columnDefinition = "int DEFAULT 0")
 
     private Integer enable;
-
-    @ApiModelProperty(value = "备注")
-
-    private String remark;
 
     @Column(name ="pageNum")
     @ApiModelProperty(value = "当前页")

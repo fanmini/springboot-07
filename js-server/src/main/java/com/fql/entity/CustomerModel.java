@@ -4,6 +4,9 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 
+/**
+ * @author Qian
+ */
 @Data
 @Entity(name = "t_customer")
 public class CustomerModel extends BaseModel {

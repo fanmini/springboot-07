@@ -11,7 +11,7 @@ public interface BaseService<T, ID> {
      * save all
      * 添加方法
      */
-    <S extends T> ResultModel save(S entity);
+    <S extends T> ResultModel save(S entity) ;
 
     /**
      * 通过id删除
@@ -32,4 +32,5 @@ public interface BaseService<T, ID> {
      */
     ResultModel findById(ID id);
 
+    ResultModel findAllByLike(T entity);
 }

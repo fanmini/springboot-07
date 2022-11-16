@@ -28,5 +28,5 @@ public interface UserService {
     UserModel findByName(String userName);
 
 
-
+    ResultModel setPwd(UserModel user);
 }

@@ -1,42 +1,42 @@
+let imgHref = '' ;
 layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
     var form = layui.form,
         layer = layui.layer,
         layedit = layui.layedit,
         laydate = layui.laydate,
         upload = layui.upload;
-    let imgHref = '';
 
-
-
-    findById();
-    // 通过拿到的id值回显修改前的值
-    // 查询
-    function findById(){
-        let id = sessionStorage.getItem("profileId");
-         let res = myAjax("/back/companyProfile/query/"+id,"get");
-         if(res!=null) {
-             setUserData(res.data);
-         }
-    }
+    // 时间组件
+    laydate.render({
+        elem:'#L_date',
+        trigger: 'click'
+    });
+    // 回显修改前的值
+    let dataItem = JSON.parse(sessionStorage.getItem("dataItem"));
+    setUserData(dataItem)
     // 赋值
     function setUserData(data){
-            form.val('profile-edit', {
-                "date": data.date // "name": "value"
-                ,"content": data.content // "name": "value"
-                ,"enable": data.enable==0?'0':'1' // 状态 启用禁用
-            });
-            $('#demo1').attr("src",data.imgHref);
-            imgHref = data.imgHref ;
+        form.val('profile-edit', {
+            "date": data.date // "name": "value"
+            ,"content": data.content // "name": "value"
+            ,"enable": data.enable==0?'0':'1' // 状态 启用禁用
+        });
+        $('#demo1').attr("src",data.imgHref);
+        imgHref =data.imgHref;
     }
     //form 表单重新渲染
     form.render();
+    // 文件上传
+    uploadFile();
     // 监听按钮
     form.on('submit(edit)',function (data){
-        data = data.field;
-        data.id=sessionStorage.getItem('profileId');
-        data.imgHref=imgHref ;
-        console.log(data);
-        let res = myAjax("/back/companyProfile/set",data,'post');
+        data = data.field ;
+        dataItem.date=data.date;
+        dataItem.content = data.content;
+        dataItem.enable= data.enable;
+        dataItem.imgHref=imgHref;
+        console.log(dataItem);
+        let res = myAjax("/back/companyProfile/set",dataItem,'PUT');
         if(res.count>0){
             layer.alert(
                 '修改成功',
@@ -52,8 +52,7 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
     });
 
 
-    // 文件上传
-    uploadFile();
+
    /* upload.render({
         elem: '#test1'
         ,url: '/back/file/upload'

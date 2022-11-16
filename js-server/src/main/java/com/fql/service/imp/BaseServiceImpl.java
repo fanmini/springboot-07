@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -29,7 +30,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 @Slf4j
-public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements BaseService<T,ID> {
+public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements BaseService<T,ID> {
    /**
     * 表示操作当前类的持久层
     * @repository: 当前的操作数据库对象
@@ -39,6 +40,7 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
 
     @Autowired
     protected RedisUtil redisUtil;
+
 
     /**
      * 对应的产品类型存储缓存的redis前缀
@@ -60,21 +62,28 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
 
 
 
-    /**
-     *  实现了公共的添加方法
-     */
     @Override
     @Transactional
-    public <S extends T> ResultModel save(S entity) {
+    public <S extends T> ResultModel save(S entity){
         if(Objects.isNull(entity)){
             return ResultModel.getResultModel(ErrorMsgCodeEnum.ERROR_ADD);
         }
         // 更新数据库
         S data = repository.save(entity);
         // 删除缓存
-        redisUtil.deleteObject(prefixKey+":*");
+        try {
+            Field id = null;
+            id = entity.getClass().getSuperclass().getDeclaredField("id");
+            id.setAccessible(true);
+            redisUtil.deleteObject(prefixKey+":"+id.get(entity));
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        redisUtil.deleteObject(prefixKey+":all");
 
-        return ResultModel.getResultModel("添加成功",null);
+        return ResultModel.getResultModel(1);
     }
 
 
@@ -93,6 +102,7 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
         repository.deleteById(id);
         // 删除缓存
         redisUtil.deleteObject(prefixKey+":"+id);
+        redisUtil.deleteObject(prefixKey+":all");
         return ResultModel.getResultModel("删除成功",null);
     }
 
@@ -102,9 +112,12 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
         // 缓存查询
         List<T> data = redisUtil.getCacheList(key);
         ResultModel result = ResultModel.getResultModel("查询成功", data);
-        if(data.size()==0){
+        if(data.size()<1){
             // 数据库查询
             data = repository.findAll();
+            if(data.size()<1){
+                return result;
+            }
             redisUtil.setCacheList(key,data);
             redisUtil.expire(key,1L,TimeUnit.HOURS);
         }
@@ -134,4 +147,7 @@ public class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements Bas
         // 返回结果
         return ResultModel.getResultModel("查询成功",data);
     }
+
+    @Override
+    public abstract ResultModel findAllByLike(T entity) ;
 }

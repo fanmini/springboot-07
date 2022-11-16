@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义Mapper映射文件
+    namespace="navMapper"：Mapper文件名称空间
+-->
+<mapper namespace="com.fql.mapper.CompanyContactMapper">
+    <!--查询全部，模糊条件查询-->
+    <select id="findAll"  resultType="companyContactModel" parameterType="companyContactModel">
+        select * from t_company_contact
+        <where>
+            <if test="text != null and text != ''">
+                and text like concat('%', #{text}, '%')
+            </if>
+
+            <if test="enable  != null and enable != -1">
+                and enable=#{enable}
+            </if>
+
+        </where>
+    </select>
+
+
+</mapper>

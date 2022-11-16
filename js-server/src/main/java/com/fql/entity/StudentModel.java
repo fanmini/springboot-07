@@ -15,5 +15,4 @@ import javax.persistence.Entity;
 
 public class StudentModel extends BaseModel {
     private String imgHref ;
-    private String date ;
 }

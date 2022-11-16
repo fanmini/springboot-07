@@ -8,4 +8,5 @@ import javax.persistence.Entity;
 @Entity(name = "t_nav")
 public class NavModel extends BaseModel {
     private String navTitle;
+    private Integer type ;
 }

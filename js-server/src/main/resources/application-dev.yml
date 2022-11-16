@@ -33,6 +33,8 @@ spring:
 
 
 
+
+
 #===========配置elastic search============#
 #  elasticsearch:
 #    rest:
@@ -44,7 +46,8 @@ spring:
 #===========rabbitmq===========#
 #  rabbitmq:
 #    host: 192.168.100.100
-
+  rabbitmq:
+    connection-timeout: 60s
 
 
 
@@ -53,7 +56,8 @@ spring:
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml
   type-aliases-package: com.fql.entity # 类型别名
-
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 
 

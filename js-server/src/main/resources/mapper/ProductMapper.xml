@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义Mapper映射文件
+    namespace="navMapper"：Mapper文件名称空间
+-->
+<mapper namespace="com.fql.mapper.ProductMapper">
+
+    <!--查询全部，模糊条件查询 多表查询-->
+    <select id="findAll"  resultType="productModel">
+        SELECT s.*
+        FROM t_nav n RIGHT JOIN`t_product` s ON n.id=s.nav_id
+        <where>
+            <if test="name != null and  name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+
+            <if test="price != null and  price != ''">
+                and price like concat('%', #{price}, '%')
+            </if>
+            <if test="enable != null">
+                and s.enable = #{enable}
+            </if>
+            <if test="navId != null and  navId > 0">
+                and n.id = #{navId}
+            </if>
+        </where>
+    </select>
+
+
+</mapper>

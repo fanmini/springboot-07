@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(value = "/back/companyContact")
+@RequestMapping(value = "/back/contact")
 @Api(value = "api接口",tags = {"公司联系管理"})
 
 public class CompanyContactController extends BaseController<CompanyContactModel,Integer> {

@@ -14,4 +14,8 @@ public class ProductController extends BaseController<ProductModel,Integer> {
     public ProductController(ProductServiceImpl service) {
         super(service);
     }
+
+
+
+
 }

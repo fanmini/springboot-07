@@ -4,16 +4,9 @@ layui.use(['form', 'layedit','layer', 'laydate'], function () {
         layedit = layui.layedit,
         laydate = layui.laydate;
 
-    findById();
-    // 通过拿到的id值回显修改前的值
-    // 查询
-    function findById(){
-        let id = sessionStorage.getItem("customerId");
-         let res = myAjax("http://localhost:8080/back/customer/query",{id:id},"get");
-         if(res!=null) {
-             setUserData(res.data);
-         }
-    }
+    // 回显修改前的值
+    var dataItem = JSON.parse(sessionStorage.getItem('dataItem'));
+    setUserData(dataItem);
     // 赋值
     function setUserData(data){
             form.val('customer-edit', {
@@ -29,9 +22,12 @@ layui.use(['form', 'layedit','layer', 'laydate'], function () {
     // 监听按钮
     form.on('submit(edit)',function (data){
         data = data.field;
-        data.id=sessionStorage.getItem('customerId');
-        console.log(data);
-        let res = myAjax("http://localhost:8080/back/customer/set",data,'post');
+        dataItem.name = data.name;
+        dataItem.phone = data.phone;
+        dataItem.email = data.email;
+        dataItem.content = data.content;
+        dataItem.enable = data.enable;
+        let res = myAjax("/back/customer/set",dataItem,'PUT');
         if(res.count>0){
             layer.alert(
                 '修改成功',

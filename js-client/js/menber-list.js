@@ -17,18 +17,22 @@ layui.use(['table','form','laydate'], function(){
             }}
         ,{field:'hobby', title:'爱好', width:120, edit: 'text'}
         ,{field: 'createTime', title:'创建时间',width:120, edit: 'text' }
-        // templet: function (res){return "<div>"+layui.util.toDateString(res.createTime, 'yyyy-MM-dd')+"</div>"}
         ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:240 }
     ]];
     // 渲染表单
     tableData('/back/user/query',null,cols);
     // 渲染时间日期
     laydate.render({
-        elem:'#createTime'
+        elem:'#createTime',
+        type: 'datetime',
+        format: 'yyyy-MM-dd HH:mm:mm'
     });
     form.render()
     // 模糊查询按钮监听
     form.on('submit(sreach)', function(data){
+         if(data.field.createTime==""){
+             delete data.field.createTime;
+         }
          data = data.field;
          // 获取技能数据
         let arr=[];
@@ -37,7 +41,7 @@ layui.use(['table','form','laydate'], function(){
         })
         data.hobby=arr.toLocaleString();
         console.log(data)
-        tableData("/back/user/query",JSON.stringify(data),cols);
+        tableData("/back/user/findAllByLike",data,cols);
         return false;
     })
     // 模糊查询数据格式验证
@@ -67,9 +71,11 @@ layui.use(['table','form','laydate'], function(){
             });
         } else if (obj.event === 'edit') {
             sessionStorage.setItem('userId',data.id);
-            xadmin.open('添加用户','/html/user/member-edit.html',600,400);
+            sessionStorage.setItem('userItem',JSON.stringify(data));
+            xadmin.open('编辑用户','/html/user/member-edit.html',600,400);
         }else if (obj.event === 'password'){
             sessionStorage.setItem('userId',data.id);
+            sessionStorage.setItem('userItem',JSON.stringify(data));
             xadmin.open('修改密码','/html/user/member-password.html',600,400);
         }
     });

@@ -3,8 +3,8 @@ function myAjax(url,data,type){
     let result = null;
     $.ajax({
         url: "http://localhost:8080"+url,
-        data:data,
-        contentType:'application/json;charset=UTF-8',
+        contentType: "application/json; charset=utf-8",
+        data:JSON.stringify(data),
         type:type,
         dataType:'json',
         async:false,
@@ -47,7 +47,7 @@ let uploadFile = function(){
     var upload = layui.upload ;
     upload.render({
     elem: '#test1'
-    ,url: '/back/file/upload'
+    ,url: 'http://localhost:8080/back/file/upload'
     ,headers: {'token': sessionStorage.getItem("token")}
     ,method: 'POST'
     ,before: function(obj){
@@ -62,12 +62,10 @@ let uploadFile = function(){
         })
     }
     ,done: function(res){
-        layer.close(layer.msg());  // 关闭上传等待框
-        imgHref=res.data.src ;
         //如果上传失败
-        if(res.code > 0){
-            return layer.msg('上传失败');
-        }
+        if(res.code > 0){ return layer.msg('上传失败'); }
+        imgHref = res.data.src;
+        layer.close(layer.msg());  // 关闭上传等待框
     }
 })
 }

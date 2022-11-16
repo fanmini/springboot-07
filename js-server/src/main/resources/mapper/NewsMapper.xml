@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义Mapper映射文件
+    namespace="navMapper"：Mapper文件名称空间
+-->
+<mapper namespace="com.fql.mapper.NewsMapper">
+
+    <select id="findNav" resultType="navModel">
+        select * from nav
+    </select>
+
+    <!--查询全部，模糊条件查询 多表查询-->
+    <select id="findAll"  resultType="newsModel">
+        SELECT s.*
+        FROM t_nav n right JOIN`t_news` s ON n.id=s.nav_id
+        <where>
+            <if test="navId!=null and navId>0">
+                and nav_id=#{navId}
+            </if>
+            <if test="date != null and  date != ''">
+                and date like concat('%', #{date} '%')
+            </if>
+
+            <if test="content != null and  content != ''">
+                and content like concat('%', #{content} '%')
+            </if>
+            <if test="enable != null and  enable != -1">
+                and s.enable = #{enable}
+            </if>
+        </where>
+    </select>
+
+</mapper>

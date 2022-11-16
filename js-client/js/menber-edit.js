@@ -23,23 +23,28 @@ layui.use(['form', 'layedit', 'laydate'], function () {
     // 赋值
     function setUserData(data){
             form.val('user-edit', {
-                "userName": data.userName // "name": "value"
-                ,"phone": data.phone // "name": "value"
-                ,"enable": data.enable==0?'0':'1' // 状态 启用禁用
-                ,"email": data.email //开关状态
+                "userName": data.userName
+                ,"phone": data.phone
+                ,"enable": data.enable==0?'0':'1'
+                ,"email": data.email
             });
-            let arr = data.hobby.split(",");
-            $('input[name=hobby][type=checkbox]').each(function(){
-                for (let i = 0; i < arr.length; i++) {
-                    if($(this).attr('title')==arr[i]){
-                        $(this).attr('checked','checked');
+            if(data.hobby!=null){
+               let arr = data.hobby.split(",");
+                $('input[name=hobby][type=checkbox]').each(function(){
+                    for (let i = 0; i < arr.length; i++) {
+                        if($(this).attr('title')==arr[i]){
+                            $(this).attr('checked','checked');
+                        }
                     }
-                };
-            });
+                });
+            }
+
     }
     //form 表单重新渲染
     form.render();
     // 监听按钮
+    let userdata = sessionStorage.getItem("userItem");
+    userdata = JSON.parse(userdata)
     form.on('submit(edit)',function (data){
         data = data.field;
         let arr = [] ;
@@ -47,10 +52,13 @@ layui.use(['form', 'layedit', 'laydate'], function () {
             arr.push($(this).attr('title'));
         });
         // 在把数组转换为字符串，
-        data.hobby = arr.toLocaleString();
-        data.id=sessionStorage.getItem('userId');
-        console.log(data);
-        let res = myAjax("/back/user/set",JSON.stringify(data),'PUT');
+        userdata.hobby=arr.toLocaleString();
+
+        userdata.userName=data.userName ;
+        userdata.phone=data.phone ;
+        userdata.enable=data.enable ;
+        userdata.email=data.email ;
+        let res = myAjax("/back/user/set",userdata,'PUT');
         if(res.count>0){
             layer.alert(
                 '修改成功',

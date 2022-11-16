@@ -3,10 +3,9 @@ layui.use(['laydate','layer','form'],function(){
         ,layer= layui.layer
         ,form = layui.form;
 
-    //
     form.on('submit(add)', function(data){
         data = data.field;
-        let res = myAjax("http://localhost:8080/back/customer/add",data,'post');
+        let res = myAjax("/back/customer/add",data,'post');
         if(res.count>0){
             layer.alert(
                 '添加成功',

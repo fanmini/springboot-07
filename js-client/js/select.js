@@ -8,6 +8,17 @@ function setCuisineData(data) {
     for (let i = 0; i < data.length; i++) {
         html += '<option value="' + data[i].id + '">' + data[i].navTitle + '</option>';
     }
-    $("#nId").html(html);
+    $("#navId").html(html);
 }
-
+function setType(res){
+    if(res.navId==null){
+        return '<div>未定义</div>';
+    }else{
+        var myselect=document.getElementById("navId");
+        for (var i=0; i<myselect.length; i++){
+            if(myselect.options[i].value==res.navId){
+                return myselect.options[i].text;
+            }
+        }
+    }
+}

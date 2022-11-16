@@ -14,14 +14,14 @@ layui.use(['form', 'layedit', 'laydate'], function () {
     findById();
     function findById(){
         let id = sessionStorage.getItem("userId");
-         let res = myAjax("http://localhost:8080/back/user/query",{id:id},"get");
+         let res = myAjax("/back/user/query/"+id,null,"get");
          if(res!=null) {
              setUserData(res.data);
          }
     }
     function setUserData(data){
             form.val('user-pwd', {
-                "username": data.username, // "name": "value"
+                "userName": data.userName, // "name": "value"
                 "password": data.password //
             });
     }
@@ -30,10 +30,9 @@ layui.use(['form', 'layedit', 'laydate'], function () {
 
     // 监听修改按钮
     form.on('submit(pwd)',function (data){
-        data=data.field;
-        data.id=sessionStorage.getItem('userId');
-        console.log(data);
-        let res = myAjax("http://localhost:8080/back/user/set",data,'post');
+        let userdata = JSON.parse(sessionStorage.getItem("userItem"));
+        userdata.password=data.field.password ;
+        let res = myAjax("/back/user/pwd",userdata,'PUT');
         if(res.count>0){
             layer.alert(
                 '修改成功',

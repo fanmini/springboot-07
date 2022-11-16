@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义Mapper映射文件
+    namespace="navMapper"：Mapper文件名称空间
+-->
+<mapper namespace="com.fql.mapper.CompanyProfileMapper">
+    <!--查询全部，模糊条件查询-->
+    <select id="findAll"  resultType="companyProfileModel" parameterType="companyProfileModel">
+        select * from t_company_profile
+        <where>
+            <if test="date != null and date != ''">
+                and date like concat('%', #{date}, '%')
+            </if>
+
+            <if test="content != null and content != ''">
+                and content like concat('%', #{content}, '%')
+            </if>
+
+            <if test="enable != null and enable != -1 and enable!=null">
+                and enable = #{enable}
+            </if>
+        </where>
+    </select>
+
+
+
+</mapper>

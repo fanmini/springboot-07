@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--定义Mapper映射文件
+    namespace="navMapper"：Mapper文件名称空间
+-->
+<mapper namespace="com.fql.mapper.OurTeamMapper">
+    <!--查询全部，模糊条件查询-->
+    <select id="findAll"  resultType="ourTeamModel" parameterType="ourTeamModel">
+        select * from t_our_team
+        <where>
+            <if test="imgHref != null and imgHref != ''">
+                and imgHref like concat('%', #{imgHref}, '%')
+            </if>
+
+            <if test="name != null and name != ''">
+                and name like concat('%', #{name}, '%')
+            </if>
+
+            <if test="position != null and position != ''">
+                and position like concat('%', #{position}, '%')
+            </if>
+
+            <if test="enable != null and enable != -1">
+                and enable = #{enable}
+            </if>
+        </where>
+    </select>
+    <!--通过id查询-->
+    <select id="findById"  resultType="ourTeamModel" >
+        select * from our_team where id = #{id}
+    </select>
+    <!--修改-->
+    <update id="modify" parameterType="ourTeamModel">
+        update our_team
+        <set>
+            <if test="imgHref != null and imgHref != ''">
+                imgHref = #{imgHref},
+            </if>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="position != null and position != ''">
+                position = #{position},
+            </if>
+            <if test="enable != null and enable != -1">
+                enable = #{enable}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+    <!--添加-->
+    <insert id="add" parameterType="ourTeamModel">
+        insert into our_team(imgHref,name,position)
+        values(#{imgHref},#{name},#{position})
+    </insert>
+    <!--删除-->
+    <delete id="remove" parameterType="int">
+        DELETE FROM our_team WHERE id = #{id}
+    </delete>
+
+
+</mapper>
