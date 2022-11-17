@@ -10,6 +10,10 @@ function myAjax(url,data,type){
         async:false,
         headers: {'token': sessionStorage.getItem('token')},
         success:function (res){
+            if (res.code != 0 && res.code < 1003) {
+                window.alert(res.msg);
+                return;
+            }
             result=res;
         }
     })

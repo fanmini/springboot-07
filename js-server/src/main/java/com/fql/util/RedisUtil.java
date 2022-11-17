@@ -17,10 +17,6 @@ public class  RedisUtil{
     StringRedisTemplate s  = new StringRedisTemplate();
     RedisUtil(RedisTemplate redisTemplate){this.redisTemplate=redisTemplate;}
 
-    /**
-     * 手动序列化节省内存
-     */
-    private ObjectMapper mapper = new ObjectMapper();
 
     /**
      * 缓存基本的对象，Integer、String、实体类等

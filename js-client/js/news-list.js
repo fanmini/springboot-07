@@ -4,9 +4,6 @@ layui.use(['table','form','laydate','jquery'], function(){
     let laydate = layui.laydate;
     let jquery = layui.jquery;
 
-    // 渲染类型
-    let nav_res  = myAjax("/back/nav/typeAll/1", null, "get");
-    setSelect(nav_res);
     // 渲染表单
     var cols = [[
         {field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
@@ -37,6 +34,10 @@ layui.use(['table','form','laydate','jquery'], function(){
     ]]
     tableData('/back/news/query',null,cols)
 
+    // 渲染类型
+    let nav_res  = myAjax("/back/nav/typeAll/1", null, "get");
+    setSelect(nav_res);
+
     form.render();
     // 渲染时间日期
     laydate.render({
@@ -62,7 +63,7 @@ layui.use(['table','form','laydate','jquery'], function(){
                         layer.close(index);
                     });
                 }else{
-                    layer.msg('删除失败')
+                    layer.msg(myAjax1.msg);
                 }
             });
         } else if (obj.event === 'delNav') {
@@ -72,15 +73,13 @@ layui.use(['table','form','laydate','jquery'], function(){
                 if(myAjax1.count>0){ // 判断是否删除成功
                     layer.msg('删除成功',function (){
                         layer.close(index);
-                        findAll();
                     });
                 }else{
-                    layer.msg('删除失败')
+                    layer.msg(myAjax1.msg);
                 }
             });
         }
         else if (obj.event === 'edit') {
-            sessionStorage.setItem("data",data.id);
             sessionStorage.setItem('dataItem',JSON.stringify(data));
             xadmin.open('编辑','/html/news/news-edit.html',600,400);
         }

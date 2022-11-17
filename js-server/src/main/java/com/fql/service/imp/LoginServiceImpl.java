@@ -56,6 +56,14 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public ResultModel login(UserModel user) {
+        // 验证码判定
+        String s = (String) redisUtil.getCacheObject(user.getCodeKey());
+        if(Objects.isNull(s)){
+            return ResultModel.getResultModel(ErrorMsgCodeEnum.ERROR_VERIFY_CODE);
+        }
+        if (!s.equals(user.getCode())){
+            return ResultModel.getResultModel(ErrorMsgCodeEnum.ERROR_VERIFY_CODE);
+        }
         // 封装前端账户密码到UsernamePasswordAuthenticationToken类中
         UsernamePasswordAuthenticationToken authenticationToken = new UsernamePasswordAuthenticationToken(user.getUserName(), user.getPassword());
         //传递前端user authenticate:会调用我们自定义的UserDetailsImpl 并进行验证

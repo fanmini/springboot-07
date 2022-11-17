@@ -28,7 +28,7 @@ layui.use(['upload','laydate','layer','form'],function(){
                     xadmin.father_reload();// 刷新父窗口
                 });
         } else{
-            layer.alert("添加失败")
+            layer.alert(res.msg)
         }
         return false;
     });

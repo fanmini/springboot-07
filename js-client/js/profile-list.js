@@ -29,7 +29,6 @@ layui.use(['table','form','laydate'], function(){
     // 模糊查询按钮监听
     form.on('submit(sreach)', function(data){
         data = data.field;
-        console.log(data)
         tableData('/back/companyProfile/findAllByLike',data,cols);
         return false;
     })
@@ -47,7 +46,7 @@ layui.use(['table','form','laydate'], function(){
                         layer.close(index);
                     });
                 }else{
-                    layer.msg('删除失败')
+                    layer.alert(myAjax1.msg)
                 }
             });
         } else if (obj.event === 'edit') {

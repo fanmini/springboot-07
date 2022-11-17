@@ -33,7 +33,7 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
                     xadmin.father_reload();// 刷新父窗口
                 });
         } else{
-            layer.alert("修改失败")
+            layer.alert(res.msg)
         }
         return false;
     });

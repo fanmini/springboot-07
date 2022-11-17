@@ -3,9 +3,6 @@ layui.use(['table','form','laydate'], function(){
     let form = layui.form;
     let laydate = layui.laydate;
 
-    // 渲染类型
-    let nav_res  = myAjax("/back/nav/typeAll/2", null, "get");
-    setSelect(nav_res);
     // 渲染表单
     var cols = [[
         {field:'id', title:'ID', width:80, fixed: 'left', unresize: true, sort: true}
@@ -34,6 +31,11 @@ layui.use(['table','form','laydate'], function(){
         ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150 }
     ]];
     tableData("/back/product/query",null,cols);
+
+    // 渲染类型
+    let nav_res  = myAjax("/back/nav/typeAll/2", null, "get");
+    setSelect(nav_res);
+
     form.render()
     // 模糊查询按钮监听
     form.on('submit(sreach)', function(data){
@@ -55,7 +57,7 @@ layui.use(['table','form','laydate'], function(){
                         layer.close(index);
                     });
                 }else{
-                    layer.msg('删除失败')
+                    layer.alert(myAjax1.msg)
                 }
             });
         } else if (obj.event === 'edit') {

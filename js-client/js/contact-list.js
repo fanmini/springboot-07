@@ -39,7 +39,7 @@ layui.use(['table','form','laydate'], function(){
                         layer.close(index);
                     });
                 }else{
-                    layer.msg('删除失败')
+                    layer.alert(myAjax1.msg)
                 }
             });
         } else if (obj.event === 'edit') {

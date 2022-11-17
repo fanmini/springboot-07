@@ -35,7 +35,6 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
         dataItem.content = data.content;
         dataItem.enable= data.enable;
         dataItem.imgHref=imgHref;
-        console.log(dataItem);
         let res = myAjax("/back/companyProfile/set",dataItem,'PUT');
         if(res.count>0){
             layer.alert(
@@ -46,7 +45,7 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
                     xadmin.father_reload();// 刷新父窗口
                 });
         } else{
-            layer.alert("修改失败")
+            layer.alert(res.msg)
         }
         return false;
     });

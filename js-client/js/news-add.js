@@ -42,7 +42,7 @@ layui.use(['layedit', 'form', 'upload', 'laydate', 'table'], function () {
                     xadmin.father_reload();
                 });
         } else {
-            layer.alert("增加失败");
+            layer.alert(res.msg);
         }
         return false;
     })
@@ -60,7 +60,7 @@ layui.use(['layedit', 'form', 'upload', 'laydate', 'table'], function () {
                     // 可以对父窗口进行刷新
                     xadmin.father_reload();
                 });
-        } else { layer.alert("增加失败"); }
+        } else { layer.alert(res.msg); }
         return false;
     })
 

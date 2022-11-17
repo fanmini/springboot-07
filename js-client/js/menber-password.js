@@ -42,7 +42,7 @@ layui.use(['form', 'layedit', 'laydate'], function () {
                     xadmin.father_reload();// 刷新父窗口
                 });
         } else{
-            layer.alert("修改失败")
+            layer.alert(res.msg)
         }
         return false;
     });

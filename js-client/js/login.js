@@ -17,7 +17,6 @@ $(function() {
                 url:'http://localhost:8080/login',
                 data:JSON.stringify(data),
                 contentType:'application/json;charset=UTF-8',
-                headers: {'codeKey': localStorage.getItem('codeKey')},
                 type:'post',
                 dataType:'json',
                 success:function (res){
@@ -25,7 +24,6 @@ $(function() {
                     if(res.code==0){
                         sessionStorage.setItem("username",res.data.userName);
                         sessionStorage.setItem("token",res.data.token)
-
                         location.href='/html/index.html'
                     }
                 }
@@ -43,9 +41,8 @@ function getCode(){
         ,success:function (res) {
             // 接收验证码
             var codeKey = res.data.codeKey;
-            // 保存
-            localStorage.setItem("codeKey",codeKey);
             $("#imgCode").attr("src",res.data.code);
+            $("#codeKey").attr("value",codeKey);
         }
     })
 }

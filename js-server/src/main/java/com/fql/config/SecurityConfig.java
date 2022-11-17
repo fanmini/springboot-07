@@ -71,7 +71,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // 并且放在UsernamePasswordAuthenticationFilter过滤器前边执行通过字节码的方式判断
         http.addFilterBefore(tokenFilter, UsernamePasswordAuthenticationFilter.class);
         // 配置自定义 认证授权错误配置
-        http.exceptionHandling().authenticationEntryPoint(authenticationException)
+        http.exceptionHandling()
+                .authenticationEntryPoint(authenticationException)
                 .accessDeniedHandler(accessDeniedHandler);
         //开启跨域
         http.cors();
