@@ -32,7 +32,7 @@ layui.use(['table','form','laydate'], function(){
         if (obj.event === 'del') {
             layer.confirm('真的删除行么', function (index) {
                 // 删除数据库数据
-                let myAjax1 = myAjax('/back/contact/del/'+data.id, null,'post');
+                let myAjax1 = myAjax('/back/contact/del/'+data.id, null,'DELETE');
                 if(myAjax1.count>0){ // 判断是否删除成功
                     layer.msg('删除成功',function (){
                         obj.del(); // 删除前端数据
