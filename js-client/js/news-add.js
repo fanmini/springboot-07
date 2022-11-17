@@ -20,6 +20,7 @@ layui.use(['layedit', 'form', 'upload', 'laydate', 'table'], function () {
     layedit.set({
         uploadImage:{
             url: "http://localhost:8080/back/file/upload"
+            ,headers:{"token":sessionStorage.getItem("token")}
         }
     });
     //富文本初始化构建一个默认的编辑器

@@ -3,6 +3,7 @@ package com.fql.controller;
 import com.fql.entity.ImgModel;
 import com.fql.entity.ResultModel;
 import com.fql.util.CopyImg;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,8 @@ public class Upload {
     @Resource
     private CopyImg c ;
 
+
+    @PreAuthorize("hasAuthority('system:admin:all')")
     @PostMapping("/upload")
     public ResultModel uploadFile(MultipartFile file) throws IOException {
         ImgModel imgModel = new ImgModel();

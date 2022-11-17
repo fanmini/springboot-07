@@ -18,7 +18,8 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
     layedit.set({
         uploadImage: {
             url: 'http://localhost:8080/back/file/upload',
-            type: 'post' // 默认post
+            type: 'post' ,// 默认post
+            headers:{"token":sessionStorage.getItem("token")}
         }
     });
     let index = layedit.build("L_content");
