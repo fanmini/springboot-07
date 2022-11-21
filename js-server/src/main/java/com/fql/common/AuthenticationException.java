@@ -20,7 +20,6 @@ public class AuthenticationException implements AuthenticationEntryPoint {
     @Override
     public void commence(HttpServletRequest res, HttpServletResponse resp, org.springframework.security.core.AuthenticationException e) throws IOException, ServletException {
         ResultModel resultModel = ResultModel.getResultModel(ErrorMsgCodeEnum.ACCESS_DENIED);
-
         ObjectMapper mapper = new ObjectMapper();
         String s = mapper.writeValueAsString(resultModel);
         WebUtils.renderString(resp,s);

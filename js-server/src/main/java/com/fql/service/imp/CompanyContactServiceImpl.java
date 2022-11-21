@@ -4,7 +4,7 @@ import com.fql.common.Rediskey;
 import com.fql.entity.CompanyContactModel;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.CompanyContactMapper;
-import com.fql.repository.CompanyContactRepository;
+import com.fql.repository.jpa.CompanyContactRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -5,13 +5,12 @@ import com.fql.entity.CustomerModel;
 import com.fql.entity.Mail;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.CustomerMapper;
-import com.fql.repository.CustomerRepository;
+import com.fql.repository.jpa.CustomerRepository;
 import com.fql.util.ProductionMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 

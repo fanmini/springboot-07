@@ -38,14 +38,20 @@ spring:
 
 
 #===========配置elastic search============#
-#  elasticsearch:
-#    rest:
-#      uris: https://192.168.41.88:9200
-#      username: elastic
-#      password: 123456
+  data:
+    elasticsearch:
+      client:
+        reactive:
+          use-ssl: true
+          username: elastic
+          password: 123456
 
 
-#===========rabbitmq===========#
+
+
+
+
+  #===========rabbitmq===========#
 #  rabbitmq:
 #    host: 192.168.100.100
   rabbitmq:
@@ -59,6 +65,8 @@ spring:
     password: YGEZUISQLBHUJIIM
     host: smtp.163.com
     from: m14785769048@163.com
+
+
 
 
 

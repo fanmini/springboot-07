@@ -4,7 +4,7 @@ import com.fql.common.Rediskey;
 import com.fql.entity.ResultModel;
 import com.fql.entity.StudentModel;
 import com.fql.mapper.StudentMapper;
-import com.fql.repository.StudentRepository;
+import com.fql.repository.jpa.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

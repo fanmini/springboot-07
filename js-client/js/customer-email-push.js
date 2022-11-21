@@ -32,8 +32,18 @@ layui.use(['form', 'layedit','layer', 'laydate'], function () {
             }
         }
         data.customer = labels;
-        console.log(data);
-        myAjax("/back/customer/customerPush",data,"POST")
+        var res = myAjax("/back/customer/customerPush",data,"POST");
+        if(res.code == 0 ){
+            layer.alert(
+                '推送成功',
+                {icon:6},
+                function (){
+                    xadmin.close();// 关闭添加窗口
+                    xadmin.father_reload();// 刷新父窗口
+                });
+        }else {
+            layer.alert(res.msg)
+        }
         return false;
     });
 

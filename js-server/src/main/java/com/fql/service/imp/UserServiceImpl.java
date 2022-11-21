@@ -4,7 +4,7 @@ import com.fql.common.Rediskey;
 import com.fql.entity.ResultModel;
 import com.fql.entity.UserModel;
 import com.fql.mapper.UserMapper;
-import com.fql.repository.UserRepository;
+import com.fql.repository.jpa.UserRepository;
 import com.fql.service.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

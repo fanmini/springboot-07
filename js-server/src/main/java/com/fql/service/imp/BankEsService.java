@@ -1,7 +1,7 @@
 package com.fql.service.imp;
 
 import com.fql.entity.BankEsEntity;
-import com.fql.repository.BankEsRepository;
+import com.fql.repository.es.BankEsRepository;
 import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;

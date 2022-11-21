@@ -3,7 +3,7 @@ package com.fql.service.imp;
 import com.fql.common.Rediskey;
 import com.fql.entity.NavModel;
 import com.fql.entity.ResultModel;
-import com.fql.repository.NavRepository;
+import com.fql.repository.jpa.NavRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

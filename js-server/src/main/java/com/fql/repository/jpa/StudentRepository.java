@@ -1,4 +1,4 @@
-package com.fql.repository;
+package com.fql.repository.jpa;
 
 import com.fql.entity.StudentModel;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -4,7 +4,7 @@ import com.fql.common.Rediskey;
 import com.fql.entity.ProductModel;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.ProductMapper;
-import com.fql.repository.ProductRepository;
+import com.fql.repository.jpa.ProductRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

@@ -79,8 +79,10 @@ public class CustomerListener {
         // 如果有失败发送消息，进行数据存储等待定时处理
         if (newArray.size()<=0){
             mail.setCustomer(newArray);
+            // 存储失败顾客信息以及消息
             redis.setCacheObject(Rediskey.CUSTOMER_EMAIL.getKey(),mail);
         }
+        // 删除缓存
             redis.deleteObject(mail.getMesId());
     }
 }

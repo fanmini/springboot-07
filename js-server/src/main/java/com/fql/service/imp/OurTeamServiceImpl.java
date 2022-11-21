@@ -4,7 +4,7 @@ import com.fql.common.Rediskey;
 import com.fql.entity.OurTeamModel;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.OurTeamMapper;
-import com.fql.repository.OurTeamRepository;
+import com.fql.repository.jpa.OurTeamRepository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
