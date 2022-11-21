@@ -44,7 +44,7 @@
         where id= #{id}
     </select>
 
-    <select id="findAllMegCountById" parameterType="String" resultMap="customerModel">
+    <select id="findAllMegCountById" parameterType="String" resultType="customerModel">
         select name,email,msg_count
         from t_customer
         where find_in_set(id,#{id})

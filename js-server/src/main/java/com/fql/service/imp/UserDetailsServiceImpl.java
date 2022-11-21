@@ -32,7 +32,13 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
 
         //  查询对应的用户权限
-        List<String> menuList = mapper.findPermsByUserId(user.getId());
+        List<String> menuList = null;
+        try {
+            menuList = mapper.findPermsByUserId(user.getId());
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.err.print("xxxxxxxxxxxxxxxx查询错误");
+        }
         return new UserDetailsEntity(user,menuList);
 
     }
