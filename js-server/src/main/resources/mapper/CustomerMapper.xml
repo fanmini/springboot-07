@@ -29,4 +29,26 @@
         </where>
     </select>
 
+    <update id="setMsgCount" parameterType="String">
+        update t_customer set msg_count=msg_count+1 where find_in_set(id,#{msgCount})
+    </update>
+    <update id="successMes" parameterType="Integer">
+        update t_customer set msg_count=0 where id=#{id}
+    </update>
+
+
+
+    <select id="findMegCountById" parameterType="Integer" resultType="customerModel">
+        select name,email,msg_count
+        from t_customer
+        where id= #{id}
+    </select>
+
+    <select id="findAllMegCountById" parameterType="String" resultMap="customerModel">
+        select name,email,msg_count
+        from t_customer
+        where find_in_set(id,#{id})
+    </select>
+
+
 </mapper>

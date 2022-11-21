@@ -6,7 +6,7 @@ package com.fql.common;
  * 用于设计redis key前缀枚举 ，通过 databaseName+tableName+用户id进行实现key设计
  *
  */
-public enum RedisKeyPrefixEnum {
+public enum Rediskey {
     /**
      * 用户key
      */
@@ -38,6 +38,11 @@ public enum RedisKeyPrefixEnum {
     /**
      *
      */
+    CUSTOMER_FAIL_MES("customer_fail_mes"),
+    CUSTOMER_EMAIL("customer_email"),
+    /**
+     *
+     */
     COMPANY_PROFILE_KEY("t_company_profile"),
     /**
      *
@@ -47,7 +52,7 @@ public enum RedisKeyPrefixEnum {
 
     private String prefixKey;
     private final String tableName ;
-    RedisKeyPrefixEnum(String tableName){
+    Rediskey(String tableName){
         this.tableName = tableName;
     }
     private void join(){

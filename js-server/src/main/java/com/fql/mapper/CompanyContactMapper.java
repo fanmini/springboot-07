@@ -10,4 +10,6 @@ import java.util.List;
 @Mapper
 public interface CompanyContactMapper extends BaseMapper<CompanyContactModel> {
     List<CompanyContactModel> findAll(CompanyContactModel cp);
+
+
 }

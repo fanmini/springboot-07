@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * @author Qian
  */
 @Configuration
-public class MyConfig {
+public class SwaggerConfig {
     /**配置参数
      * Swagger config file
      * */
@@ -38,14 +38,6 @@ public class MyConfig {
                 "licenseUrl",
                 new ArrayList<>()
         );
-    }
-    /**
-    * druid
-    * */
-    @ConfigurationProperties(prefix = "spring.datasource")
-    @Bean
-    public DruidDataSource druid(){
-        return new DruidDataSource();
     }
 
 }

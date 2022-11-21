@@ -1,12 +1,18 @@
 package com.fql.config;
 
+import com.rabbitmq.client.ConnectionFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.core.TopicExchange;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.Resource;
 
 /**
  * @author Qian
@@ -14,28 +20,28 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @Slf4j
 public class RabbitConfig {
-    private static final String TOPIC_EXCHANGE="fql.in_home.topic";
+    private static final String TOPIC_EXCHANGE="js.in_home.topic";
+
+    @Resource
+    CachingConnectionFactory connectionFactory ;
+
+    // 提供自定义 rabbitmqTemplate
+    @Bean
+    public RabbitTemplate jacksonRabbitTemplate(){
+        RabbitTemplate template = new RabbitTemplate(connectionFactory);
+        template.setMessageConverter(new Jackson2JsonMessageConverter());
+        return  template ;
+    }
+
 
     /**
      * 创建队列
      * @return
      */
     @Bean
-    public Queue queueTestAll(){
-        log.info("创建队列queueTestAll...");
-        return new Queue("fql_all",true);
-    }
-
-    @Bean
-    public Queue queueTest1(){
-        log.info("创建队列queueTest1...");
-        return new Queue("fql_test1",true);
-    }
-
-    @Bean
-    public Queue queueTest2(){
-        log.info("创建队列queueTest2...");
-        return new Queue("fql_test2",true);
+    public Queue queueCustomer(){
+        log.info("创建队列----->queue_customer...");
+        return new Queue("queue_customer",true);
     }
 
     /**
@@ -44,7 +50,7 @@ public class RabbitConfig {
      */
     @Bean
     public TopicExchange topicExchange(){
-        log.info("topic 实例化主题交换机,name:{}",TOPIC_EXCHANGE);
+        log.info("topic 实例化主题交换机----->{}",TOPIC_EXCHANGE);
         return new TopicExchange(TOPIC_EXCHANGE,true,false);
     }
 
@@ -52,21 +58,10 @@ public class RabbitConfig {
      * 绑定队列
      */
     @Bean
-    public Binding bindingTestAll(){
-        log.info("队列all绑定交换机,name:{}",TOPIC_EXCHANGE);
-        return BindingBuilder.bind(queueTestAll()).to(topicExchange()).with("fql.#");
-    }
-
-    @Bean
     public Binding bindingTest1(){
-        log.info("队列test1绑定交换机,name:{}",TOPIC_EXCHANGE);
-        return BindingBuilder.bind(queueTest1()).to(topicExchange()).with("fql.test1.*");
+        log.info("队列queue_customer绑定交换机----->{}",TOPIC_EXCHANGE);
+        return BindingBuilder.bind(queueCustomer()).to(topicExchange()).with("queue_customer.*");
     }
 
-    @Bean
-    public Binding bindingTest2(){
-        log.info("队列test2绑定交换机,name:{}",TOPIC_EXCHANGE);
-        return BindingBuilder.bind(queueTest2()).to(topicExchange()).with("fql.test2.*");
-    }
 
 }

@@ -1,5 +1,6 @@
 package com.fql.service;
 
+import com.fql.entity.Mail;
 import com.fql.entity.ResultModel;
 
 /**
@@ -33,4 +34,6 @@ public interface BaseService<T, ID> {
     ResultModel findById(ID id);
 
     ResultModel findAllByLike(T entity);
+
+
 }

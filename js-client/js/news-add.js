@@ -7,7 +7,6 @@ layui.use(['layedit', 'form', 'upload', 'laydate', 'table'], function () {
     layedit = layui.layedit;
 
     //    页面加载完成首先需要加载菜系
-    //    先将菜系内容查询出来，然后赋值即可
     let res = myAjax("/back/nav/typeAll/1", null, "get");
     setSelect(res);
     // 时间组件

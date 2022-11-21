@@ -16,10 +16,10 @@ layui.use(['form', 'layedit','layer', 'laydate','upload'], function () {
     setUserData(item);
     function setUserData(data){
         form.val('product-edit', {
-            "navId": data.navId // "name": "value"
-            ,"name": data.name // "name": "value"
-            ,"price": data.price // "name": "value"
-            ,"enable": data.enable==0?'0':'1' // 状态 启用禁用
+            "navId": data.navId
+            ,"name": data.name
+            ,"price": data.price
+            ,"enable": data.enable==0?'0':'1'
         });
         $('#demo1').attr("src",data.imgHref);
         imgHref = data.imgHref ;

@@ -14,6 +14,8 @@ spring:
     password: root
     # 切换数据源
     type: com.alibaba.druid.pool.DruidDataSource
+    dbcp2:
+      remove-abandoned-on-maintenance:
   jpa:
     hibernate:
       ddl-auto: update # 自动创建表
@@ -48,6 +50,16 @@ spring:
 #    host: 192.168.100.100
   rabbitmq:
     connection-timeout: 60s
+    listener:
+      simple:
+        acknowledge-mode: manual
+  #============email===========#
+  mail:
+    username: m14785769048@163.com
+    password: YGEZUISQLBHUJIIM
+    host: smtp.163.com
+    from: m14785769048@163.com
+
 
 
 

@@ -1,12 +1,11 @@
 package com.fql.service.imp;
 
-import com.fql.common.RedisKeyPrefixEnum;
+import com.fql.common.Rediskey;
 import com.fql.entity.ResultModel;
 import com.fql.entity.UserModel;
 import com.fql.mapper.UserMapper;
 import com.fql.repository.UserRepository;
 import com.fql.service.UserService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -21,7 +20,7 @@ import java.util.List;
 @Service
 public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepository> implements UserService {
     public UserServiceImpl(UserRepository repository) {
-        super(repository,RedisKeyPrefixEnum.USER_KEY.getKey());
+        super(repository, Rediskey.USER_KEY.getKey());
     }
     @Resource
     private UserMapper mapper ;

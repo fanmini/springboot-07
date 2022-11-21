@@ -59,7 +59,7 @@
                         <dd>
                             <a onclick="xadmin.open('切换帐号','http://www.baidu.com')">切换帐号</a></dd>
                         <dd>
-                            <a href="../login/login.html">退出</a></dd>
+                            <a href="../login/login.html" onclick="myAjax('http://localhost:8080/loginOut',null,'GET')">退出</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item to-index">
@@ -120,12 +120,12 @@
 <!--                    // 产品中心-->
                     <li>
                         <a href="javascript:;">
-                            <i class="iconfont left-nav-li" lay-tips="新闻资讯">&#xe6b8;</i>
+                            <i class="iconfont left-nav-li" lay-tips="产品中心">&#xe6b8;</i>
                             <cite>产品中心</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('会员列表','/html/product/product-list.html')">
+                                <a onclick="xadmin.add_tab('产品列表','/html/product/product-list.html')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>产品列表</cite></a>
                             </li>
@@ -135,12 +135,12 @@
 <!--                    // 教练信息-->
                     <li>
                         <a href="javascript:;">
-                            <i class="iconfont left-nav-li" lay-tips="新闻资讯">&#xe6b8;</i>
+                            <i class="iconfont left-nav-li" lay-tips="教练信息">&#xe6b8;</i>
                             <cite>教练信息</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('会员列表','/html/ourteam/coach-list.html')">
+                                <a onclick="xadmin.add_tab('教练信息','/html/ourteam/coach-list.html')">
                                     <i class="iconfont">&#xe6a7;</i>
                                     <cite>教练列表</cite></a>
                             </li>
@@ -166,14 +166,14 @@
                     <!--                    // 客户预约-->
                     <li>
                         <a href="javascript:;">
-                            <i class="iconfont left-nav-li" lay-tips="新闻资讯">&#xe6b8;</i>
+                            <i class="iconfont left-nav-li" lay-tips="客户预约">&#xe6b8;</i>
                             <cite>客户预约</cite>
                             <i class="iconfont nav_right">&#xe697;</i></a>
                         <ul class="sub-menu">
                             <li>
-                                <a onclick="xadmin.add_tab('会员列表','/html/customer/customer-list.html')">
+                                <a onclick="xadmin.add_tab('客户预约','/html/customer/customer-list.html')">
                                     <i class="iconfont">&#xe6a7;</i>
-                                    <cite>会员列表</cite></a>
+                                    <cite>客户预约</cite></a>
                             </li>
                         </ul>
                     </li>

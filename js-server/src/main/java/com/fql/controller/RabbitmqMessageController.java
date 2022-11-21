@@ -3,6 +3,8 @@ package com.fql.controller;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +23,7 @@ public class RabbitmqMessageController {
     private RabbitTemplate rabbitTemplate;
 
     @GetMapping("/send")
+    @PreAuthorize("hasAnyAuthority('system:admin:all','system:test:query')")
     public String send(String message, String rk){
         // 这里我给三个路由都发消息：rk为：wx.students.all,wx.teachers.all,wx.hr.lida.
         // 这里的exchange名，rk，bk，这些信息在设计阶段最好定好，不要弄太多，
@@ -33,8 +36,9 @@ public class RabbitmqMessageController {
         return "send message the end ....";
     }
 
+    @Scheduled(fixedRate = 5000)
     private void sendTest1Messages(){
-        String message = "因为疫情，万息全体学员居家3天，期间上课采用线上方式，考勤不变";
+        String message = "只因你太美，ggggggggjntm，实在是太美";
         for(int i = 0; i < 5; i++) {
             if(i % 2 == 0) {
                 String uuid = UUID.randomUUID().toString();
