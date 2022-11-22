@@ -1,6 +1,5 @@
 server:
   port: 8080
-
 spring:
   #===========bean冲突======#
   main:
@@ -32,26 +31,13 @@ spring:
         max-wait: 100ms
   jackson:
     default-property-inclusion: non_null # json处理时忽空字段
-
-
-
-
-
 #===========配置elastic search============#
-  data:
-    elasticsearch:
-      client:
-        reactive:
-          use-ssl: true
-          username: elastic
-          password: 123456
-
-
-
-
-
-
-  #===========rabbitmq===========#
+  elasticsearch:
+    rest:
+      password: 123456
+      username: elastic
+      uris: http://192.168.41.88:9200
+#===========rabbitmq===========#
 #  rabbitmq:
 #    host: 192.168.100.100
   rabbitmq:
@@ -65,13 +51,6 @@ spring:
     password: YGEZUISQLBHUJIIM
     host: smtp.163.com
     from: m14785769048@163.com
-
-
-
-
-
-
-
 #============mybatisPlus===========#
 mybatis-plus:
   mapper-locations: classpath*:/mapper/**/*.xml

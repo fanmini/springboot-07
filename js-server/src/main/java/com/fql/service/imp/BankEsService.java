@@ -38,6 +38,8 @@ public class BankEsService {
                 .withHighlightFields(field).build();
         SearchHits<BankEsEntity> result = template.search(nativ, BankEsEntity.class);
 
+
+
         // 高亮数据替换到email
         List<BankEsEntity> list = result.stream().map(x -> {
             BankEsEntity content = x.getContent();

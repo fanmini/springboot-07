@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 /**
  * @author Qian
  */
-
 @Repository
 public interface BankEsRepository extends ElasticsearchRepository<BankEsEntity,Integer> {
 

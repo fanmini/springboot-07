@@ -75,14 +75,11 @@ public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> imple
             id = entity.getClass().getSuperclass().getDeclaredField("id");
             id.setAccessible(true);
             redisUtil.deleteObject(prefixKey+":"+id.get(entity));
-        } catch (NoSuchFieldException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
+        } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
         }
         redisUtil.deleteObject(prefixKey+":all");
-
-        return ResultModel.getResultModel(1);
+        return ResultModel.getResultModel(1,data);
     }
 
 

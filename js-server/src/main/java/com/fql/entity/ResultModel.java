@@ -34,12 +34,12 @@ public class ResultModel {
     public static ResultModel getResultModel(int count, Object c) {
         return new ResultModel(0,"",count,c);
     }
-    public static ResultModel getResultModel(String msg, Object c) {
-        return new ResultModel(0,msg,1,c);
-    }
-
     public static ResultModel getResultModel(int count) {
         return new ResultModel(0,"",count,null);
+    }
+
+    public static ResultModel getResultModel(String msg, Object c) {
+        return new ResultModel(0,msg,1,c);
     }
     public static ResultModel getResultModel(Object c) {
         return new ResultModel(0,"",0,c);
