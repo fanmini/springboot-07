@@ -5,9 +5,12 @@ import com.fql.entity.ResultModel;
 import com.fql.entity.StudentModel;
 import com.fql.mapper.StudentMapper;
 import com.fql.repository.jpa.StudentRepository;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class StudentServiceImpl extends BaseServiceImpl<StudentModel,Integer, StudentRepository>  {
@@ -21,6 +24,13 @@ public class StudentServiceImpl extends BaseServiceImpl<StudentModel,Integer, St
 
     @Override
     public ResultModel findAllByLike(StudentModel entity) {
-        return ResultModel.getResultModel(mapper.findAll(entity));
+        PageHelper.startPage(entity.getPage(),entity.getLimit());
+        List<StudentModel> all = mapper.findAll(entity);
+        PageInfo<StudentModel> result = new PageInfo<>(all);
+        Integer count = Math.toIntExact(result.getTotal());
+        return ResultModel.getResultModel(count,result);
+
+
+
     }
 }

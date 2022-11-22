@@ -76,5 +76,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(accessDeniedHandler);
         //开启跨域
         http.cors();
+
     }
 }

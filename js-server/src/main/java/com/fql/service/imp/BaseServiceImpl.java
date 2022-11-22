@@ -50,6 +50,7 @@ public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> imple
      */
     protected String prefixKey ;
 
+
     /**
      * 通过构造器注入当前操作数据库的的对象类
      * @param repository
@@ -145,5 +146,7 @@ public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> imple
     }
 
     @Override
-    public abstract ResultModel findAllByLike(T entity) ;
+    public  ResultModel findAllByLike(T entity){
+        return null ;
+    }
 }

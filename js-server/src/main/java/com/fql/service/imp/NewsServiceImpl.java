@@ -1,7 +1,6 @@
 package com.fql.service.imp;
 
 import com.fql.common.Rediskey;
-import com.fql.entity.BankEsEntity;
 import com.fql.entity.EsNewsEntity;
 import com.fql.entity.NewsModel;
 import com.fql.entity.ResultModel;
@@ -91,7 +90,7 @@ public class NewsServiceImpl extends BaseServiceImpl<NewsModel,Integer, NewsRepo
     }
 
     /**
-     * 自定义 检索邮箱 new1:高亮展示
+     * 自定义 新闻内容检索 new1:高亮展示
      * @param content
      * @return
      */

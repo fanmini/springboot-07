@@ -6,6 +6,8 @@ import com.fql.entity.UserModel;
 import com.fql.mapper.UserMapper;
 import com.fql.repository.jpa.UserRepository;
 import com.fql.service.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +28,19 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepos
     private UserMapper mapper ;
     @Resource
     private PasswordEncoder pass ;
-    // 模糊查询
+
+    /**
+     * 模糊查询
+     * @param userModel
+     * @return
+     */
     @Override
     public ResultModel findAllByLike(UserModel userModel){
+        PageHelper.startPage(userModel.getPage(),userModel.getLimit());
         List<UserModel> all = mapper.findAll(userModel);
-        return ResultModel.getResultModel(all);
+        PageInfo<UserModel> result = new PageInfo<>(all);
+        Integer count = Math.toIntExact(result.getTotal());
+        return ResultModel.getResultModel(count,result);
     }
 
     // 检查用户以及密码是否正确

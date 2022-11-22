@@ -6,6 +6,9 @@ import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * @author Qian
+ */
 @RestController
 @RequestMapping(value = "/back/contact")
 @Api(value = "api接口",tags = {"公司联系管理"})

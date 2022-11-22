@@ -37,7 +37,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
             menuList = mapper.findPermsByUserId(user.getId());
         } catch (Exception e) {
             e.printStackTrace();
-            System.err.print("xxxxxxxxxxxxxxxx查询错误");
+            System.err.print("权限查询错误");
         }
         return new UserDetailsEntity(user,menuList);
 
