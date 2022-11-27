@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
+/**
+ * @author Qian
+ */
 @RestController
 @RequestMapping(value = "/back/nav")
 @Api(value = "api接口",tags = {"标题管理"})
@@ -26,7 +29,6 @@ public class NavController extends BaseController<NavModel,Integer> {
 
     @ApiOperation(value = "传入int类型1=新闻标题，2=产品标题，查询对应标题",httpMethod = "GET")
     @GetMapping("/typeAll/{type}")
-    @PreAuthorize("hasAnyAuthority('system:admin:all','system:test:query')")
     public ResultModel findAllByType(@PathVariable("type")Integer type) {
         return navService.findAllByType(type);
     }

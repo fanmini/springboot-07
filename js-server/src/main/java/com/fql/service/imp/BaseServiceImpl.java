@@ -6,6 +6,7 @@ import com.fql.entity.ResultModel;
 import com.fql.service.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -107,7 +108,12 @@ public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> imple
     public ResultModel findAll() {
         String key = prefixKey+":all";
         // 缓存查询
-        List<T> data = redisUtil.getCacheList(key);
+        List<T> data = null;
+        try {
+            data = redisUtil.getCacheList(key);
+        } catch (Exception e) {
+            log.info("访问redis数据库异常======{}",e.getMessage());
+        }
         ResultModel result = ResultModel.getResultModel("查询成功", data);
         if(data.size()<1){
             // 数据库查询

@@ -6,7 +6,6 @@ function myAjax(url,data,type){
         type:type,
         dataType:'json',
         async:false,
-        headers: {'token': 'reception'},
         success:function (res){
             result=res;
         }

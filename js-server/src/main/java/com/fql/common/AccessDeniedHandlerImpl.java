@@ -20,7 +20,7 @@ import java.io.IOException;
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
     @Override
     public void handle(HttpServletRequest httpServletRequest, HttpServletResponse resp, AccessDeniedException e) throws IOException {
-        ResultModel resultModel = ResultModel.getResultModel(ErrorMsgCodeEnum.ACCESS_DENIED);
+        ResultModel resultModel = ResultModel.getResultModel(1002,e.getMessage());
         ObjectMapper mapper = new ObjectMapper();
         String s = mapper.writeValueAsString(resultModel);
         WebUtils.renderString(resp,s);

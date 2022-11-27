@@ -27,7 +27,7 @@ public class ProductServiceImpl extends BaseServiceImpl<ProductModel,Integer, Pr
         List<ProductModel> all = mapper.findAll(entity);
         PageInfo<ProductModel> result = new PageInfo<>(all);
         Integer total = Math.toIntExact(result.getTotal());
-        return ResultModel.getResultModel(total,result);
+        return ResultModel.getResultModel(total,all);
     }
 
 }

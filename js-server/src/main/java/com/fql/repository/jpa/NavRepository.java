@@ -6,6 +6,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
+/**
+ * @author Qian
+ */
 public interface NavRepository extends JpaRepository<NavModel,Integer> {
     List<NavModel> findAllByType(Integer type);
 }

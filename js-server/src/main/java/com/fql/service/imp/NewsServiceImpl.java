@@ -20,7 +20,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -97,7 +99,7 @@ public class NewsServiceImpl extends BaseServiceImpl<NewsModel,Integer, NewsRepo
     public List<EsNewsEntity> searchByContent(String content){
         // 创建一个高光xxx
         HighlightBuilder.Field field = new HighlightBuilder.Field("content")
-                .preTags("<fount style='color:yellow>'")
+                .preTags("<fount style='color:#f73131'>")
                 .postTags("</fount>");
         // 构建本地查询
         NativeSearchQuery nativ = new NativeSearchQueryBuilder()
@@ -107,7 +109,7 @@ public class NewsServiceImpl extends BaseServiceImpl<NewsModel,Integer, NewsRepo
 
 
 
-        // 高亮数据替换到email
+        // 高亮数据替换到content
         List<EsNewsEntity> list = result.stream().map(x -> {
             EsNewsEntity esNews = x.getContent();
             esNews.setContent(x.getHighlightField("content").get(0));

@@ -4,6 +4,9 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 
+/**
+ * @author Qian
+ */
 @Data
 @Entity(name = "t_nav")
 public class NavModel extends BaseModel {

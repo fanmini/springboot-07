@@ -1,11 +1,3 @@
 spring:
   profiles:
     active: dev
-user:
-  age: 18
-  name: test
-  address:
-    - x
-    - y
-    - z
-    - y

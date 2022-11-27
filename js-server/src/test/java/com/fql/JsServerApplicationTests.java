@@ -1,8 +1,11 @@
 package com.fql;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import javax.annotation.Resource;
 
 @SpringBootTest
 class JsServerApplicationTests {
@@ -19,5 +22,4 @@ class JsServerApplicationTests {
         System.out.println(name);
         System.out.println(address);
     }
-
 }

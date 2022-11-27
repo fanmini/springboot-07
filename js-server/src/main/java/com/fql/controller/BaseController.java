@@ -19,7 +19,7 @@ public class BaseController<Entity,ID> {
     }
     @ApiOperation(value = "传入一个当前模型的对象，添加一个当前对象",httpMethod = "POST")
     @PostMapping("/add")
-    @PreAuthorize("hasAuthority('system:admin:all')")
+    @PreAuthorize("hasAnyAuthority('system:admin:all','system:test:query')")
     public ResultModel add(@RequestBody Entity entity) {
         return service.save(entity);
     }
@@ -33,10 +33,16 @@ public class BaseController<Entity,ID> {
         return service.deleteById(id);
     }
 
+    @ApiOperation(value = "传入当前模型对象，根据传入的id进行修改对象的其他值",httpMethod = "PUT")
+    @PutMapping("/set")
+    @PreAuthorize("hasAuthority('system:admin:all')")
+    public ResultModel set(@RequestBody Entity entity) {
+        return service.save(entity);
+    }
+
 
     @ApiOperation(value = "直接查询全部",httpMethod = "GET")
     @GetMapping("/query")
-    @PreAuthorize("hasAnyAuthority('system:admin:all','system:test:query')")
     public ResultModel findAll() {
         return service.findAll();
     }
@@ -44,23 +50,14 @@ public class BaseController<Entity,ID> {
 
     @ApiOperation(value = "通过传入一个当前对象的id，根据传入的id进行查询",httpMethod = "GET")
     @GetMapping("/query/{id}")
-    @PreAuthorize("hasAnyAuthority('system:admin:all','system:test:query')")
     public ResultModel findById(@PathVariable("id") ID id) {
         return service.findById(id);
     }
 
     @ApiOperation(value = "传入当前模型对象，根据传入属性值模糊查询对应的数据",httpMethod = "GET")
     @GetMapping("/findAllByLike")
-    @PreAuthorize("hasAnyAuthority('system:admin:all','system:test:query')")
     public ResultModel findAllByLike(Entity entity) {
         return service.findAllByLike(entity);
-    }
-
-    @ApiOperation(value = "传入当前模型对象，根据传入的id进行修改对象的其他值",httpMethod = "PUT")
-    @PutMapping("/set")
-    @PreAuthorize("hasAuthority('system:admin:all')")
-    public ResultModel set(@RequestBody Entity entity) {
-        return service.save(entity);
     }
 
 

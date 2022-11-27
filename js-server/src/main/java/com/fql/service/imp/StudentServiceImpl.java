@@ -28,7 +28,7 @@ public class StudentServiceImpl extends BaseServiceImpl<StudentModel,Integer, St
         List<StudentModel> all = mapper.findAll(entity);
         PageInfo<StudentModel> result = new PageInfo<>(all);
         Integer count = Math.toIntExact(result.getTotal());
-        return ResultModel.getResultModel(count,result);
+        return ResultModel.getResultModel(count,all);
 
 
 

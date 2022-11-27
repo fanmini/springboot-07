@@ -69,7 +69,7 @@ layui.use(['table','form','laydate','jquery'], function(){
         } else if (obj.event === 'delNav') {
             layer.confirm('删除新闻类型', function (index) {
                 // 删除数据库数据
-                let myAjax1 = myAjax('/back/nav/del/'+data.id, null,'DELETE');
+                let myAjax1 = myAjax('/back/nav/del/'+data.navId, null,'DELETE');
                 if(myAjax1.count>0){ // 判断是否删除成功
                     layer.msg('删除成功',function (){
                         layer.close(index);

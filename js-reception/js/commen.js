@@ -1,4 +1,4 @@
-$(function(){
+ $(function(){
 	$("#top").load("top.html");
 	$("#foot").load("foot.html");
 	$("#emun-nav").load("emnu-nav.html");

@@ -31,18 +31,18 @@ public class ResultModel {
         return new ResultModel(e.getCode(),e.getMsg(),0,null);
     }
 
-    public static ResultModel getResultModel(int count, Object c) {
-        return new ResultModel(0,"",count,c);
+    public static ResultModel getResultModel(int count, Object data) {
+        return new ResultModel(0,"",count,data);
     }
     public static ResultModel getResultModel(int count) {
         return new ResultModel(0,"",count,null);
     }
 
-    public static ResultModel getResultModel(String msg, Object c) {
-        return new ResultModel(0,msg,1,c);
+    public static ResultModel getResultModel(String msg, Object data) {
+        return new ResultModel(0,msg,1,data);
     }
-    public static ResultModel getResultModel(Object c) {
-        return new ResultModel(0,"",0,c);
+    public static ResultModel getResultModel(Object data) {
+        return new ResultModel(0,"",0,data);
     }
 
 

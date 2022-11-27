@@ -7,7 +7,7 @@ $(function (){
 
 // 新闻内容赋值
     //标题赋值
-    let navData = myAjax("http://localhost:8080/back/product/productNav",{},"get");
+    let navData = myAjax("http://localhost:8080/back/nav/typeAll/2", {},"get");
     if (navData.data!=null) {
         data = navData.data;
         html = "";
@@ -23,7 +23,7 @@ $(function (){
 
 })
 function newsContent(id,obj){
-    let productData = myAjax("http://localhost:8080/back/product/query",{nId:id},"get");
+    let productData = myAjax("http://localhost:8080/back/product/query",{navId:id},"get");
     if(productData!=null){
         data = productData.data ;
         // 添加背景颜色

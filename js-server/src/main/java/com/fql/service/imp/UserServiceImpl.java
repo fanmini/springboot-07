@@ -40,7 +40,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepos
         List<UserModel> all = mapper.findAll(userModel);
         PageInfo<UserModel> result = new PageInfo<>(all);
         Integer count = Math.toIntExact(result.getTotal());
-        return ResultModel.getResultModel(count,result);
+        return ResultModel.getResultModel(count,all);
     }
 
     // 检查用户以及密码是否正确
