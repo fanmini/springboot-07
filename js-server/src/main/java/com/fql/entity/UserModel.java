@@ -33,6 +33,4 @@ public class UserModel extends BaseModel implements Serializable {
     private String code;
     @ApiModelProperty(value = "验证码key")
     private String codeKey;
-
-
 }

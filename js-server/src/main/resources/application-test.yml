@@ -1,16 +1,17 @@
 server:
   port: 8080
+  #=======文件上传路径========#
+web:
+  upload-path: E:/img/
 spring:
-  redis:
-    ip: 127.0.0.1
-    port: 6379
-    # password: root
-    maxIdle: 8
-    minIdle: 0
-    maxTotal: 8
-    maxWaitMillis: 1
-    minEvictableIdleTimeMillis: 1800000
+  #=======自定义静态资源路径========#
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+  #===========bean冲突======#
+  main:
+    allow-bean-definition-overriding: true
 
+  #============数据库===========#
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/springbootdemo?useSSL=true&useUnicode=true&serverTimezone=GMT&characterEncoding=UTF-8
@@ -18,32 +19,56 @@ spring:
     password: root
     # 切换数据源
     type: com.alibaba.druid.pool.DruidDataSource
-    #Spring Boot 默认是不注入这些属性值的，需要自己绑定
-    #druid 数据源专有配置
-    initialSize: 5
-    minIdle: 5
-    maxActive: 20
-    maxWait: 60000
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: SELECT 1 FROM DUAL
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    #配置监控统计拦截的filters，stat:监控统计、log4j：日志记录、wall：防御sql注入
-    #如果允许时报错  java.lang.ClassNotFoundException: org.apache.log4j.Priority
-    #则导入 log4j 依赖即可，Maven 地址：https://mvnrepository.com/artifact/log4j/log4j
-    filters: stat,wall,log4j
-    maxPoolPreparedStatementPerConnectionSize: 20
-    useGlobalDataSourceStat: true
-    connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=500
+    dbcp2:
+      remove-abandoned-on-maintenance:
   jpa:
     hibernate:
       ddl-auto: update # 自动创建表
     database: mysql
     show-sql: true
     database-platform: org.hibernate.dialect.MySQL57Dialect # 指定数据库引擎
+#==================redis==================#
+  redis:
+    host: 43.143.251.78
+    password: Fql042431!
+    lettuce:
+      pool:
+        max-active: 8
+        min-idle: 0
+        max-idle: 8
+        max-wait: 100ms
+
+  jackson:
+    default-property-inclusion: non_null # json处理时忽空字段
+  #===========配置elastic search============#
+  elasticsearch:
+    rest:
+      password: 123456
+      username: elastic
+      uris: http://43.143.251.78:9200
+  #===========rabbitmq===========#
+  #  rabbitmq:
+  #    host: 192.168.100.100
+  rabbitmq:
+    connection-timeout: 60s
+    host: 43.143.251.78
+    listener:
+      simple:
+        acknowledge-mode: manual
+  #============email===========#
+  mail:
+    username: m14785769048@163.com
+    password: YGEZUISQLBHUJIIM
+    host: smtp.163.com
+    from: m14785769048@163.com
+#============mybatisPlus===========#
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.fql.entity # 类型别名
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 
 
 

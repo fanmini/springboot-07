@@ -49,7 +49,7 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             userId = claims.getSubject();
         } catch (Exception e) {
             e.printStackTrace();
-            logger.error("非法的token");
+            logger.warn("无法解析token");
             throw new RuntimeException(ErrorMsgCodeEnum.ERROR_LOGIN_NO.toString());
         }
         // 从redis中同userid获取用户信息ASDFG

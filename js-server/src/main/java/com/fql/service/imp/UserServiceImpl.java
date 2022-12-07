@@ -43,13 +43,6 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepos
         return ResultModel.getResultModel(count,all);
     }
 
-    // 检查用户以及密码是否正确
-    @Override
-    public UserModel checkLogin(String userName, String password) {
-        return repository.findByUserNameAndPassword(userName, password);
-    }
-
-
     // 根据姓名查询用户是否存在
     @Override
     public UserModel findByName(String userName) {
@@ -64,5 +57,12 @@ public class UserServiceImpl extends BaseServiceImpl<UserModel,Integer,UserRepos
         return super.save(user);
     }
 
-
+    @Override
+    public <S extends UserModel> ResultModel save(S entity) {
+        // 密码不为空
+        if (entity.getPassword()!=null && entity.getPassword()!=""){
+            entity.setPassword(pass.encode(entity.getPassword()));
+        }
+        return super.save(entity);
+    }
 }

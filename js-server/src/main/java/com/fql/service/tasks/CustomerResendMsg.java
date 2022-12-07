@@ -39,7 +39,7 @@ public class CustomerResendMsg {
         Mail mail = redis.getCacheObject(Rediskey.CUSTOMER_EMAIL.getKey());
         List<String> list = mail.getCustomer();
         if(null == list ||list.size() <=0){
-            log.info("当前队列暂无失败消息！！！！");
+            log.info("暂无失败消息！！！！");
             return ;
         }
         // 查询要投递的用户

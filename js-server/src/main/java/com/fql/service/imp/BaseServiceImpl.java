@@ -115,14 +115,14 @@ public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> imple
             log.info("访问redis数据库异常======{}",e.getMessage());
         }
         ResultModel result = ResultModel.getResultModel("查询成功", data);
-        if(data.size()<1){
+        if (null == data || data.size() < 1) {
             // 数据库查询
             data = repository.findAll();
-            if(data.size()<1){
+            if (data.size() < 1) {
                 return result;
             }
-            redisUtil.setCacheList(key,data);
-            redisUtil.expire(key,1L,TimeUnit.HOURS);
+            redisUtil.setCacheList(key, data);
+            redisUtil.expire(key, 1L, TimeUnit.HOURS);
         }
         // 返回数据
         result.setData(data);

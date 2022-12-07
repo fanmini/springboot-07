@@ -22,7 +22,7 @@ import java.util.List;
 
 /**
  * @author Qian
- * 接受消费队列fql_test1信息
+ * 消费队列信息
  */
 @Slf4j
 @Component
@@ -39,6 +39,7 @@ public class CustomerListener {
     public void receive(Message message, Channel channel) throws Exception {
         Mail mail = SerializeUtil.jsonToObj(message,Mail.class);
 
+        assert mail != null;
         String mesId = mail.getMesId();
         // 缓存查询消息
         List<String> arr = redis.getCacheList(mesId);
@@ -48,7 +49,6 @@ public class CustomerListener {
             return ;
         }
         List<String> newArray = new ArrayList<>();
-
         // 对一个或多个用户发送邮件
         for (int i = 0; i < arr.size(); i++) {
             CustomerModel data = mapper.findMegCountById(Integer.valueOf(arr.get(i)));

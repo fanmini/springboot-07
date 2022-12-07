@@ -10,14 +10,6 @@ import com.fql.entity.UserModel;
  *
  */
 public interface UserService {
-    /**
-     *
-     * @param userName
-     * @param password
-     * @return
-     * 检查登录
-     */
-    UserModel checkLogin(String userName,String password);
 
     /**
      *

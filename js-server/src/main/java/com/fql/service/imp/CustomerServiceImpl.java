@@ -40,13 +40,15 @@ public class CustomerServiceImpl extends BaseServiceImpl<CustomerModel,Integer, 
         if (null==customer || customer.size()<1){
             return ResultModel.getResultModel("您没有选中要推荐的客户",null);
         }
-        // uuid
+        // uuid redis key
         mail.setMesId(UUID.randomUUID().toString());
-        // 消息计数存入数据库
+
+        // 获取推送者的id
         String msgCount = "";
         for (String s : customer) {
             msgCount+=(s+",");
         }
+        // 在数据库设置消息待发送计数
         mapper.setMsgCount(msgCount);
         // 缓存
         redisUtil.setCacheList(mail.getMesId(), mail.getCustomer());

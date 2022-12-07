@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductionMessage {
     private static final String EXCHANGE_NAME="js.in_home.topic";
+    private static final String QUEUE_NAME="queue_customer.all";
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
@@ -21,9 +22,9 @@ public class ProductionMessage {
     public boolean createMes(Mail msg) {
         CorrelationData correlationData = new CorrelationData(msg.getMesId());
         rabbitTemplate.convertAndSend(EXCHANGE_NAME,
-                "queue_customer.all",
-                 msg
-                ,correlationData);
+                                      QUEUE_NAME,
+                                      msg,
+                                      correlationData);
         log.info("消息：{} 生产成功",msg);
         return true ;
     }

@@ -35,7 +35,7 @@ layui.use(['form', 'layedit','layer', 'laydate'], function () {
         var res = myAjax("/back/customer/customerPush",data,"POST");
         if(res.code == 0 ){
             layer.alert(
-                '推送成功',
+                res.msg,
                 {icon:6},
                 function (){
                     xadmin.close();// 关闭添加窗口

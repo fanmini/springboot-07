@@ -58,9 +58,10 @@ function extracted(newsData,obj) {
 
 // 显示某条新闻的具体内容
 function showContent(id,index) {
-    if(index != null){
+    if(index != null && index > 0 ){
         id = index ;
     }
+    console.log(id);
     let newContent = myAjax("http://localhost:8080/back/news/query/" + id, {}, "get");
     html = '';
     if (newContent != null) {

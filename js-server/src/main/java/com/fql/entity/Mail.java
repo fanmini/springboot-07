@@ -33,7 +33,7 @@ public class Mail implements Serializable {
      */
     private String to ;
     /**
-     * 邮箱列表
+     * 顾客推送id列表
      */
     private List<String> customer ;
 

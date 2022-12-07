@@ -3,7 +3,6 @@ package com.fql.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.fql.entity.CustomerModel;
-import com.fql.entity.NewsModel;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -12,7 +11,7 @@ public interface CustomerMapper extends BaseMapper<CustomerModel> {
     List<CustomerModel> findAll(CustomerModel c);
 
     /**
-     * 设置顾客理论要收到的消息条数
+     * 设置顾客要要收到的消息条数
      * @param msgCount
      */
     int setMsgCount(String msgCount);
