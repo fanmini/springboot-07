@@ -1,6 +1,6 @@
 package com.fql.filter;
 
-import com.fql.common.ErrorMsgCodeEnum;
+import com.fql.err.ErrorMsgCodeEnum;
 import com.fql.util.JwtUtil;
 import com.fql.util.RedisUtil;
 import com.fql.entity.UserDetailsEntity;
@@ -24,17 +24,17 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
-    private RedisUtil red ;
+    private final RedisUtil red ;
     JwtAuthenticationTokenFilter(RedisUtil util){
         this.red=util;
     }
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         // 登录拦截解析校验授权
-        logCheck(httpServletRequest, httpServletResponse, filterChain);
+        loginCheck(httpServletRequest, httpServletResponse, filterChain);
     }
 
-    private void logCheck(HttpServletRequest req, HttpServletResponse resp, FilterChain filterChain) throws IOException, ServletException {
+    private void loginCheck(HttpServletRequest req, HttpServletResponse resp, FilterChain filterChain) throws IOException, ServletException {
         // 获取token
         String token = req.getHeader("token");
         // 空判断
@@ -52,12 +52,11 @@ public class JwtAuthenticationTokenFilter extends OncePerRequestFilter {
             logger.warn("无法解析token");
             throw new RuntimeException(ErrorMsgCodeEnum.ERROR_LOGIN_NO.toString());
         }
-        // 从redis中同userid获取用户信息ASDFG
+        // 从redis中同userid获取用户信息
         String redisKey = "login:"+userId;
         UserDetailsEntity userLogin = red.getCacheObject(redisKey);
-        red.expire(redisKey,600L);
         if(Objects.isNull(userLogin)){
-            throw new RuntimeException(ErrorMsgCodeEnum.ERROR_LOGIN_NO.toString());
+            throw new RuntimeException("请先登录");
         }
         // 刷新token有效期 30 分钟
         red.expire(redisKey,30L,TimeUnit.MINUTES);

@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.ErrorMsgCodeEnum;
+import com.fql.err.ErrorMsgCodeEnum;
 import com.fql.entity.VerifyCode;
 import com.fql.util.Base64Utils;
 import com.fql.util.JwtUtil;
@@ -17,7 +17,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
@@ -32,9 +31,9 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class LoginServiceImpl implements LoginService {
     @Autowired
-    AuthenticationManager authenticationManager;
+    private AuthenticationManager authenticationManager;
     @Autowired
-    RedisUtil redisUtil;
+    private RedisUtil redisUtil;
 
     @Override
     public ResultModel getCode(HttpServletResponse resp){
@@ -80,7 +79,7 @@ public class LoginServiceImpl implements LoginService {
         // authenticate 存储
         redisUtil.setCacheObject("login:"+id, userDetailsEntity,30,TimeUnit.MINUTES);
         // 返回token
-        HashMap<String, String> map = new HashMap<>();
+        HashMap<String, String> map = new HashMap<>(10);
         map.put("userName",user.getUserName());
         map.put("token", jwt);
         return ResultModel.getResultModel("登录成功",map);

@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @SpringBootApplication
 @EnableTransactionManagement
+@EnableScheduling
 public class JsServerApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(JsServerApplication.class, args);

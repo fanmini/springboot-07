@@ -10,7 +10,7 @@ layui.use(['table','form','laydate'], function(){
         ,{field:'email', title:'邮箱', width:150, edit: 'text', templet: function(res){
                 return '<em>'+ res.email +'</em>'
             }}
-        ,{field:'enable', title:'状态', width:150, edit: 'text', templet: function(res){
+        ,{field:'enable', title:'状态', width:40, edit: 'text', templet: function(res){
                 return res.enable==0?
                     '<em style="color: green">'+'启用'+'</em>':
                     '<em style="color: red">'+ '停用' +'</em>'
@@ -56,6 +56,8 @@ layui.use(['table','form','laydate'], function(){
     //触发单元格工具事件
     table.on('tool(test)', function (obj) { // 双击 toolDouble
         var data = obj.data;
+        sessionStorage.setItem('userItem',JSON.stringify(data));
+        sessionStorage.setItem('userId',data.id);
         if (obj.event === 'del') {
             layer.confirm('真的删除行么', function (index) {
                 // 删除数据库数据
@@ -70,13 +72,11 @@ layui.use(['table','form','laydate'], function(){
                 }
             });
         } else if (obj.event === 'edit') {
-            sessionStorage.setItem('userId',data.id);
-            sessionStorage.setItem('userItem',JSON.stringify(data));
             xadmin.open('编辑用户','/html/user/member-edit.html',600,400);
         }else if (obj.event === 'password'){
-            sessionStorage.setItem('userId',data.id);
-            sessionStorage.setItem('userItem',JSON.stringify(data));
             xadmin.open('修改密码','/html/user/member-password.html',600,400);
+        }else if (obj.event === 'permission'){
+            xadmin.open('权限修改','/html/user/member-permission.html',600,400);
         }
     });
 });

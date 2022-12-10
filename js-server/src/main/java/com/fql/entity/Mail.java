@@ -18,7 +18,7 @@ public class Mail implements Serializable {
     /**
      * 消息id
      */
-    private String MesId;
+    private String mesId;
 
     /**
      * 消息标题

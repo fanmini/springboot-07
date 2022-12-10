@@ -1,7 +1,7 @@
 package com.fql.config;
 
-import com.fql.common.AccessDeniedHandlerImpl;
-import com.fql.common.AuthenticationException;
+import com.fql.err.AccessDeniedHandlerImpl;
+import com.fql.err.AuthenticationException;
 import com.fql.filter.JwtAuthenticationTokenFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -22,7 +22,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  *
  */
 @Configuration
-@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true,jsr250Enabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     /**
      * 返回
@@ -69,8 +69,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         "/*/*/findAllByLike",
                         "/*/*/query/*",
                         "/*/*/query",
-                        "/*/*/typeAll/*",
-                        "/js/**"
+                        "/back/nav/typeAll/**",
+                        "/js/**",
+                        "/swagger-ui/**",
+                        "/webjars/**",
+                        "/swagger-resources/**",
+                        "/v3/**"
                 ).permitAll()
                 // 除了外面的的所有请求全部需要鉴权认证
                 .anyRequest().authenticated();
@@ -83,6 +87,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .accessDeniedHandler(accessDeniedHandler);
         //开启跨域
         http.cors();
-
     }
+
+
+
 }

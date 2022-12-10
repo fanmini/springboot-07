@@ -31,7 +31,7 @@ public class SwaggerConfig {
                         "\nmsg：消息提示 " +
                         "\ncount:返回条数" +
                         "\nObject:返回数据",
-                "v1",
+                "v3",
                 "暂无服务条款",
                 new Contact("fanmini","http://localhost","m14785769048@163.com"),
                 "license",

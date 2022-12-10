@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.Rediskey;
+import com.fql.util.RedisKey;
 import com.fql.entity.EsNewsEntity;
 import com.fql.entity.NewsModel;
 import com.fql.entity.ResultModel;
@@ -20,9 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -30,11 +28,11 @@ import java.util.stream.Collectors;
  * 新闻类添加了es查询高光展示功能
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 @Slf4j
 public class NewsServiceImpl extends BaseServiceImpl<NewsModel,Integer, NewsRepository> {
     public NewsServiceImpl(NewsRepository repository) {
-        super(repository, Rediskey.NEWS_KEY.getKey());
+        super(repository, RedisKey.NEWS_KEY.getKey());
     }
     @Autowired
     private  NewsEsRepository repository ;
@@ -60,7 +58,11 @@ public class NewsServiceImpl extends BaseServiceImpl<NewsModel,Integer, NewsRepo
 
     @Override
     public ResultModel deleteById(Integer integer) {
-        repository.delete(new EsNewsEntity(integer));
+        try {
+            repository.delete(new EsNewsEntity(integer));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return super.deleteById(integer);
     }
 
@@ -102,20 +104,20 @@ public class NewsServiceImpl extends BaseServiceImpl<NewsModel,Integer, NewsRepo
                 .preTags("<fount style='color:#f73131'>")
                 .postTags("</fount>");
         // 构建本地查询
-        NativeSearchQuery nativ = new NativeSearchQueryBuilder()
+        NativeSearchQuery natives = new NativeSearchQueryBuilder()
                 .withQuery(QueryBuilders.matchQuery("content", content))
                 .withHighlightFields(field).build();
-        SearchHits<EsNewsEntity> result = template.search(nativ, EsNewsEntity.class);
+        SearchHits<EsNewsEntity> result = template.search(natives, EsNewsEntity.class);
 
 
 
         // 高亮数据替换到content
-        List<EsNewsEntity> list = result.stream().map(x -> {
+        return result.stream().map(x -> {
             EsNewsEntity esNews = x.getContent();
             esNews.setContent(x.getHighlightField("content").get(0));
             return esNews;
         }).collect(Collectors.toList());
-        return list ;
+
     }
 
 

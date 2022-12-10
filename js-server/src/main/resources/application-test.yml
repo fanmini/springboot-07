@@ -46,9 +46,8 @@ spring:
       password: 123456
       username: elastic
       uris: http://43.143.251.78:9200
+      connection-timeout: 20s
   #===========rabbitmq===========#
-  #  rabbitmq:
-  #    host: 192.168.100.100
   rabbitmq:
     connection-timeout: 60s
     host: 43.143.251.78

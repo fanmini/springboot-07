@@ -30,6 +30,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         if(Objects.isNull(user)){
             throw new RuntimeException("用户不存在");
         }
+        // TODO:查询用户的角色
 
         //  查询对应的用户权限
         List<String> menuList = null;

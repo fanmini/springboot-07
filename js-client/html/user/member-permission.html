@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html class="x-admin-sm">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>欢迎页面-X-admin2.2</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width,user-scalable=yes, minimum-scale=0.4, initial-scale=0.8,target-densitydpi=low-dpi" />
+        <link rel="stylesheet" href="/X-admin/css/font.css">
+        <link rel="stylesheet" href="/X-admin/css/login.css">
+        <link rel="stylesheet" href="/X-admin/css/xadmin.css">
+        <script type="text/javascript" src="/js/jquery-3.5.1.js"></script>
+        <script src="/X-admin/lib/layui/layui.js" charset="utf-8"></script>
+        <script src="/js/xadmin.js"></script>
+        <script src="/js/myAjax.js"></script>
+        <script src="/js/menber-permisstion.js"></script>
+    </head>
+    <body>
+        <div class="layui-fluid">
+            <div class="layui-row">
+                <form class="layui-form" lay-filter="user-permisstion">
+<!------------------------------------------字段开始---------------------------------------------------->
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class="x-red"></span>用户角色</label>
+                        <div class="layui-input-block" id="user-role">
+
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label">
+                            <span class="x-red"></span>特殊权限</label>
+                        <div class="layui-input-block" id="user-permission">
+                        </div>
+                    </div>
+
+                    <div class="layui-form-item">
+                        <label class="layui-form-label"></label>
+                        <button class="layui-btn" lay-filter="set-permissions" lay-submit="">修改</button></div>
+<!------------------------------------------字段结束---------------------------------------------------->
+                </form>
+            </div>
+        </div>
+    </body>
+
+</html>

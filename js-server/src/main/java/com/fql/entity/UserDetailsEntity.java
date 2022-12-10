@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -64,7 +65,7 @@ public class UserDetailsEntity implements UserDetails  {
         if(authorities!=null){
             return authorities ;
         }
-        authorities = permissions.stream().map(SimpleGrantedAuthority::new)
+        authorities = permissions.stream().filter(Objects::nonNull).map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
         return authorities;
     }

@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.Rediskey;
+import com.fql.util.RedisKey;
 import com.fql.entity.CompanyProfileModel;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.CompanyProfileMapper;
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 @Service
 public class CompanyProfileServiceImpl extends BaseServiceImpl<CompanyProfileModel,Integer, CompanyProfileRepository> {
     public CompanyProfileServiceImpl(CompanyProfileRepository repository) {
-        super(repository, Rediskey.COMPANY_PROFILE_KEY.getKey());
+        super(repository, RedisKey.COMPANY_PROFILE_KEY.getKey());
     }
     @Resource
     private CompanyProfileMapper mapper ;

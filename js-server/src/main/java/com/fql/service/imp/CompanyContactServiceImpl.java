@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.Rediskey;
+import com.fql.util.RedisKey;
 import com.fql.entity.CompanyContactModel;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.CompanyContactMapper;
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 @Service
 public class CompanyContactServiceImpl extends BaseServiceImpl<CompanyContactModel,Integer,CompanyContactRepository> {
     public CompanyContactServiceImpl(CompanyContactRepository repository) {
-        super(repository, Rediskey.COMPANY_CONTACT_KEY.getKey());
+        super(repository, RedisKey.COMPANY_CONTACT_KEY.getKey());
     }
     @Resource
     private CompanyContactMapper mapper ;

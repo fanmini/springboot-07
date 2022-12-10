@@ -1,4 +1,4 @@
-package com.fql.common;
+package com.fql.util;
 
 /**
  * @author Qian
@@ -6,17 +6,17 @@ package com.fql.common;
  * 用于设计redis key前缀枚举 ，通过 databaseName+tableName+用户id进行实现key设计
  *
  */
-public enum Rediskey {
+public enum RedisKey {
     /**
      * 用户key
      */
     USER_KEY("t_user"),
     /**
-     *
+     *学员key
      */
     STUDENT_KEY("t_student"),
     /**
-     *
+     *产品key
      */
     PRODUCT_KEY("t_product"),
     /**
@@ -52,7 +52,7 @@ public enum Rediskey {
 
     private String prefixKey;
     private final String tableName ;
-    Rediskey(String tableName){
+    RedisKey(String tableName){
         this.tableName = tableName;
     }
     private void join(){

@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.Rediskey;
+import com.fql.util.RedisKey;
 import com.fql.entity.OurTeamModel;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.OurTeamMapper;
@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 @Service
 public class OurTeamServiceImpl extends BaseServiceImpl<OurTeamModel,Integer, OurTeamRepository>  {
     public OurTeamServiceImpl(OurTeamRepository repository) {
-        super(repository, Rediskey.OUR_TEAM_KEY.getKey());
+        super(repository, RedisKey.OUR_TEAM_KEY.getKey());
     }
     @Resource
     private OurTeamMapper mapper ;

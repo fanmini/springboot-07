@@ -1,12 +1,11 @@
 package com.fql.service.imp;
 
-import com.fql.common.ErrorMsgCodeEnum;
+import com.fql.err.ErrorMsgCodeEnum;
 import com.fql.util.RedisUtil;
 import com.fql.entity.ResultModel;
 import com.fql.service.BaseService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,6 +29,7 @@ import java.util.concurrent.TimeUnit;
  *
  */
 @Slf4j
+@Transactional(rollbackFor = Exception.class)
 public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> implements BaseService<T,ID> {
    /**
     * 表示操作当前类的持久层
@@ -64,7 +64,6 @@ public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> imple
 
 
     @Override
-    @Transactional
     public <S extends T> ResultModel save(S entity){
         if(Objects.isNull(entity)){
             return ResultModel.getResultModel(ErrorMsgCodeEnum.ERROR_ADD);
@@ -91,7 +90,6 @@ public abstract class  BaseServiceImpl<T,ID,R extends JpaRepository<T,ID>> imple
      * @return
      */
     @Override
-    @Transactional
     public ResultModel deleteById(ID id) {
         if(id == null){
             return ResultModel.getResultModel(ErrorMsgCodeEnum.ERROR_DEL.toString(),null);

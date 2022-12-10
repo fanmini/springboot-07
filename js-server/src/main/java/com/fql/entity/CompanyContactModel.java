@@ -4,6 +4,12 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 
+/**
+ * @author:qian
+ * @version
+ *
+ */
+
 @Data
 @Entity(name = "t_company_contact")
 public class CompanyContactModel extends BaseModel {

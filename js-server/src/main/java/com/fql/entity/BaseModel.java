@@ -17,6 +17,10 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @Data
 @MappedSuperclass
+/**
+ * @author
+ * 实体类基类
+ */
 public class BaseModel implements Serializable {
     // 主键注解
     @Id

@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.Rediskey;
+import com.fql.util.RedisKey;
 import com.fql.entity.NavModel;
 import com.fql.entity.ResultModel;
 import com.fql.repository.jpa.NavRepository;
@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class NavServiceImpl extends BaseServiceImpl<NavModel,Integer, NavRepository>  {
     public NavServiceImpl(NavRepository repository) {
-        super(repository, Rediskey.NAV_KEY.getKey());
+        super(repository, RedisKey.NAV_KEY.getKey());
     }
 
     @Override

@@ -20,5 +20,10 @@ public interface UserService {
     UserModel findByName(String userName);
 
 
+    /**
+     * 设置密码
+     * @param user
+     * @return
+     */
     ResultModel setPwd(UserModel user);
 }

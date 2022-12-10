@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.Rediskey;
+import com.fql.util.RedisKey;
 import com.fql.entity.ResultModel;
 import com.fql.entity.StudentModel;
 import com.fql.mapper.StudentMapper;
@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class StudentServiceImpl extends BaseServiceImpl<StudentModel,Integer, StudentRepository>  {
     public StudentServiceImpl(StudentRepository studentRepository) {
-        super(studentRepository, Rediskey.STUDENT_KEY.getKey());
+        super(studentRepository, RedisKey.STUDENT_KEY.getKey());
     }
 
     @Resource

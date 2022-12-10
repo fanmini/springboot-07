@@ -8,5 +8,11 @@ import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 @Mapper
 public interface UserMapper extends BaseMapper<UserModel> {
+    /**
+     * 模糊查询用户信息
+     * @param userModel
+     * @return
+     */
     List<UserModel> findAll(UserModel userModel);
+
 }

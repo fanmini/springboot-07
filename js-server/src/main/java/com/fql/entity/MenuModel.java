@@ -36,7 +36,8 @@ public class MenuModel implements Serializable {
      */
     private String component;
     /**
-     * 菜单状态（0显示 1隐藏）
+     * 菜单状态（1显示）
+     *
      */
     private String visible;
     /**

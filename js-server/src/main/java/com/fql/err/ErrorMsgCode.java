@@ -1,4 +1,4 @@
-package com.fql.common;
+package com.fql.err;
 
 /**
  * @author Qian

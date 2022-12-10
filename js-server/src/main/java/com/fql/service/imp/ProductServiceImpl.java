@@ -1,6 +1,6 @@
 package com.fql.service.imp;
 
-import com.fql.common.Rediskey;
+import com.fql.util.RedisKey;
 import com.fql.entity.ProductModel;
 import com.fql.entity.ResultModel;
 import com.fql.mapper.ProductMapper;
@@ -15,7 +15,7 @@ import java.util.List;
 @Service
 public class ProductServiceImpl extends BaseServiceImpl<ProductModel,Integer, ProductRepository>  {
     public ProductServiceImpl(ProductRepository repository) {
-        super(repository, Rediskey.PRODUCT_KEY.getKey());
+        super(repository, RedisKey.PRODUCT_KEY.getKey());
     }
     @Resource
     private ProductMapper mapper ;

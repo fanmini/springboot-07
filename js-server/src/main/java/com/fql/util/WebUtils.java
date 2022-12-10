@@ -19,11 +19,9 @@ public class WebUtils
         try
         {
             response.setStatus(200);
-//            response.setContentType("application/json");
             response.setCharacterEncoding("utf-8");
             response.setCharacterEncoding("UTF-8");
             response.setContentType("text/html;charset=UTF-8");
-            // 此处 setHeader、addHeader 方法都可用。但 addHeader时写多个会报错：“...,but only one is allowed”
             response.setHeader("Access-Control-Allow-Origin", "*");
             response.setHeader("Access-Control-Allow-Headers", "x-requested-with,Cache-Control,Pragma,token,codeKey,Content-Type,Token, Content-Type");
             response.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS, DELETE");

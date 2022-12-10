@@ -1,7 +1,7 @@
 package com.fql.entity;
 
-import com.fql.common.ErrorMsgCode;
-import com.fql.common.ErrorMsgCodeEnum;
+import com.fql.err.ErrorMsgCode;
+import com.fql.err.ErrorMsgCodeEnum;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -30,6 +30,7 @@ public class ResultModel {
         ErrorMsgCode e = emc.getE();
         return new ResultModel(e.getCode(),e.getMsg(),0,null);
     }
+
 
     public static ResultModel getResultModel(int count, Object data) {
         return new ResultModel(0,"",count,data);

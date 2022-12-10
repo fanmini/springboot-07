@@ -9,16 +9,14 @@ layui.use(['form', 'layedit','layer', 'laydate'], function () {
     var customer = $('#customer-list');
     // 动态添加
     if(null != data && data.length > 0){
-        customer.append('<input type="checkbox" lay-skin="primary" name="customer" value="0" title="所有顾客">');
         $.each(data,function (index,item){
-            customer.append('<input type="checkbox" lay-skin="primary" name="customer" value="' + item.id + '" title="' + item.name + '">');
+            customer.append('<input type="checkbox" lay-skin="primary" name="customer" value="' + item.email + '" title="' + item.name + '">');
         })
     }else{
         customer.append('<input type="checkbox" lay-skin="primary" name="customer" value="-1" title="暂无顾客" checked>');
     }
     // 刷新
     form.render('checkbox');
-
     // 监听提交按钮
     form.on('submit(email-push)',function (data){
         data = data.field ;
